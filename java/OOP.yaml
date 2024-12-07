@@ -1,0 +1,84 @@
+- class:
+  - Named group of properties and functions
+  - They normally start with Capital letter
+  - It is the template of object
+  - We can create our own datatype
+  - Logical construct
+  - syntax:
+    - class <class_name> {}
+    - class Student {
+      int rno;
+      String name;
+      float marks;
+      
+      void changeName (String newName) {
+        this.name = newName}
+        
+      Student() {
+        this.rno = 4;
+        this.name = Lithanya;
+        this.marks = 100;}
+        
+      Student(int rno, String name, float marks){
+        this.rno = rno;
+        this.name = name;
+        this.marks = marks;}
+      
+      Student(Student other){
+        this.rno = other.rno;
+        this.name = other.name;
+        this.marks = other.marks;}}
+
+- object:
+  - It is an instance of class
+  - Physical reality
+  - Variables that are inside an object are called instance variables
+  - Variables that actually defines an object are valled reference variables [E.g., int, list,..]
+  - new - dynamically allocates memory and returns a reference to it [Student student1 = new Student()]
+
+  - Here Student() is by default constructor [special function] - This informs what happens when an object is created
+  - new Student(26, "Vasanth", 92.6)
+  - Constructor is a special function, that runs when you create an object and it allocates some variable
+
+  - state:
+    - value from its data type
+  - identity:
+    - how object differ
+  - behavior:
+    - effect of data type
+
+- constructor overloading:
+  - practice of defining multiple constructor within the same class, each with different parameter list
+  - java differentiates constructors by their number of parameters, type of parameters, order of parameters
+  - By this, we provide flexibility in object creation
+
+- calling constructor within constructor:
+  - Student(){
+    this(26, "Vasanth", "92.5f")};
+
+    Student(int rno, String name, float marks){
+      this.name = name;
+      this.rno = rno;
+      this.marks = marks;}
+
+- why we don't new key word for primitive types:
+  - This will increase effeciency
+  - This will store in stack memory
+
+- wrapper classes:
+  - In java they are used to convert primitive data types into objects
+  - this is particularly useful when we are working with collections or arraylist
+
+- "final" keyword:
+  - prevent content to be modified if primitive data type
+  - In case on non primitive, we cannot reassign
+  - Like Const in JS
+  - if we don't initialize during declaring it will throw error [e.g., final int INCREASE]
+  - syntax:
+    - final int PI = 3.142
+
+- garbage collection:
+  - It happens automatically in java
+  - whenever a object of class is destroyed this finalize method will be called
+  - syntax:
+    - protected void finalize() throws Throwable {}
