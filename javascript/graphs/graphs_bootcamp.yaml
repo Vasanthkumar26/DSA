@@ -1,0 +1,16 @@
+- graph:
+    - graph = nodes + edges
+    - neighbor node:
+        - when the edge is flowing from one node[A] to another node[B] then the connected node[B] is neighbor node of [A]
+        - in the above conditon A is not the neighbor node of B
+        - if there is no connection then they are not neighbor
+    - directed graph:
+        - we have arrow head at the end of the edges
+        - this indicates edges are flowing from which node to which node
+    - undirected graph:
+        - We don't have arrow head at the end of the edges
+        - we can connect to all the nodes in any direction [we can tavel in both the directions]
+    - while programming we use adjacency list [JS - objects, Python - dictionaries]
+    - we can use DFS [Stack] and BFS [Queue]
+    - cyclic - nodes are connected in a cyclic manner
+    - acyclic - nodes are not connected in a circle
