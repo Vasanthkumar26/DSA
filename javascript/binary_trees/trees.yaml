@@ -1,0 +1,15 @@
+- In binary tree all the nodes will have a max of 2 children nodes
+- exactly one root
+- exactly one path between root and any node
+- root node:
+  - a node with no parent node
+- parent node:
+  - a node which has parent node & child node
+- leaf node:
+  - a node with no child node
+- syntax:
+  - class Node{
+    constructor(val){
+      this.val = val;
+      this.left = null;
+      this.right = null;}}
