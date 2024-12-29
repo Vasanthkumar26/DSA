@@ -1,0 +1,183 @@
+- What are semantic tags:
+    - Semantic tags are HTML tags that define the meaning of the content they contain.
+    - They are used to improve the structure and accessibility of a website, and to make the code easier to read and maintain.
+    - Semantic tags are different from non-semantic tags, such as <div> and , which only hold content and don't indicate its role or type.
+    - Semantic tags provide a clear description of the content they contain and their purpose.
+    - Here are some examples of semantic tags and what they mean:
+        - <header>: Represents introductory content
+        - <nav>: Defines a section of navigational links
+        - <p>: Represents a paragraph of text
+        - <h1>, <h2>, <h3>, <h4>, <h5>, <h6>: Represents a page heading
+        - <article>: Can be used to manage sections and is reusable and independently distributable
+        - <section>: Can be used to group multiple sections of content
+        - <figure>: Can be used to enclose a figure or image
+        - <figcaption>: Can be used to represent a caption or legend for a figure
+
+- HTTP Vs HTTPS:
+    - HTTP:
+        - Hypertext Transfer Protocol, and is the primary protocol for transferring data over the internet.
+        - When you visit a website, your browser sends an HTTP request to the web server, which responds with an HTTP response.
+    - HTTPS:
+        - Hypertext Transfer Protocol Secure, and is an encrypted version of HTTP.
+        - HTTPS uses TLS (SSL) to encrypt HTTP requests and responses, creating a secure connection between your browser and the server.
+        - This protects the communication from being intercepted and tampered with by attackers.
+
+- Different Position properties in CSS:
+    - Static:
+        - This is the default position for all elements.
+        - The element is positioned according to the normal document flow, without any special positioning.
+        - No offset properties (top, right, bottom, left) work with this positioning.
+    - Relative:
+        - The element is positioned relative to its normal position in the document flow.
+        - The element's position can be adjusted using top, right, bottom, and left.
+    - Absolute:
+        - The element is positioned relative to the nearest positioned ancestor (an ancestor with relative, absolute, or fixed positioning).
+        - If no such ancestor exists, it is positioned relative to the <html> element (the document).
+        - Can be positioned using top, right, bottom, and left.
+    - Fixed:
+        - The element is positioned relative to the viewport and does not move when the page is scrolled.
+        - Removed from the normal document flow.
+        - top, right, bottom, and left can be used to specify its position.
+        - Always stays in the same position on the screen.
+    - Sticky:
+        - The element is positioned based on the user's scroll position.
+        - It toggles between relative and fixed depending on the scroll position.
+        - Requires at least one of top, right, bottom, or left to be defined.
+        - The element behaves like relative until a specified offset (e.g., top:- 0) is met, after which it behaves like fixed.
+        - Limited to the bounds of its containing block (does not stick outside of its parent)
+
+- CSS Box model:
+    - Content:
+        - The actual content of the box (text, images, or other elements).
+        - Its size is defined by properties like width and height.
+    - Padding:
+        - The space between the content and the element's border.
+        - Padding creates inner spacing inside the element but outside the content.
+        - Controlled using padding, padding-top, padding-right, padding-bottom, and padding-left.
+    - Border:
+        - The boundary that wraps around the padding (if any) and the content.
+        - Borders can have styles (solid, dashed, none), widths, and colors.
+        - Controlled using border, border-width, border-style, and border-color.
+    - Margin:
+        - The space outside the element's border that separates it from neighboring elements.
+        - Margins create outer spacing.
+        - Controlled using margin, margin-top, margin-right, margin-bottom, and margin-left.
+
+    - Content-Box (default):
+        - width and height include only the content.
+        - Padding and border are added outside the specified width/height.
+    - Border-Box:
+        - width and height include content, padding, and border.
+        - Easier to manage layout since the box size stays fixed.
+
+- ES6 Features:
+    - let & const:
+        - let x = 10;   // Block scoped
+        - x = 20;       // Allowed
+        - const y = 30; // Block scoped
+        - y = 40;       // Error Cannot reassign a const variable
+    - arrow functions:
+        - const add = (a, b) => a + b;
+        - console.log(add(5, 3)); // 8
+    - default parameters:
+        - function greet(name = "Guest") { return `Hello, ${name}!` }
+        - console.log(greet()); // Hello, Guest!
+        - console.log(greet("Alice")); // Hello, Alice!
+    - template literals:
+        - const name = "John";
+        - const age = 25;
+        - console.log(`My name is ${name} and I am ${age} years old.`); // My name is John and I am 25 years old.
+    - Destructuring:
+        - const numbers = [1, 2, 3];
+        - const [a, b, c] = numbers;
+        - console.log(a, b, c); // 1 2 3
+
+        - const person = { name:- "Alice", age:- 30 };
+        - const { name, age } = person;
+        - console.log(name, age); // Alice 30
+        - const { name:- givenName, age:- givenAge } = person;
+        - console.log(givenName, givenAge); // Alice 30
+    - rest & spread parameters:
+        - Rest:
+            - Combines multiple values into an array.
+            - function sum(...nums) { return nums.reduce((acc, num) => acc + num, 0); }
+            - console.log(sum(1, 2, 3)); // 6
+        - Spread:
+            - Expands an array or object.
+            - const arr1 = [1, 2];
+            - const arr2 = [...arr1, 3, 4]; // Spread operator
+            - console.log(arr2); // [1, 2, 3, 4]
+
+            - const obj1 = { a:- 1, b:- 2 };
+            - const obj2 = { ...obj1, c:- 3 };
+            - console.log(obj2); // { a:- 1, b:- 2, c:- 3 }
+    - classes:
+    - prommises:
+    - modules (import/export):
+    - Enhavnced object literal:
+    - symbol:
+        - A new primitive data type for unique identifiers.
+    - Iterators and Generators:
+        - Iterators:
+            - Objects that allow sequential access to elements.
+        - Generators:
+            - Functions that can pause and resume execution using the yield keyword.
+            - function* numbers() {
+              yield 1;
+              yield 2;
+              yield 3;}
+
+              const iterator = numbers();
+              console.log(iterator.next().value); // 1
+              console.log(iterator.next().value); // 2
+              console.log(iterator.next().value); // 3
+    - Map & Set:
+        - Map:
+            - A key-value pair data structure.
+            - const map = new Map();
+              map.set("name", "Alice");
+              map.set("age", 25);
+              console.log(map.get("name")); // Alice
+        - Set:
+            - A collection of unique values.
+            - const set = new Set([1, 2, 2, 3]);
+              console.log(set); // Set { 1, 2, 3 }
+    - for...of loop:
+        - Iterates over iterable objects like arrays, strings, or maps.
+        - const arr = [10, 20, 30];
+          for (const value of arr) { console.log(value); }
+          // 10
+          // 20
+          // 30
+    - Default and Named Exports:
+        - Default export:
+            - A single export from a module.
+        - Named export:
+            - Allows exporting multiple values.
+    - Block scoped functions:
+        - Functions declared in a block are scoped to that block.
+    - New Methods in Built-in Objects:
+
+- Virtual DOM:
+    - The Virtual DOM (VDOM) is a concept implemented in React to optimize performance and enhance the user experience.
+    - It serves as a lightweight copy of the actual Real DOM in the browser, allowing React to perform efficient updates without directly manipulating the real DOM every time a change occurs.
+    - React compares the previous and new virtual DOMs, calculates the differences, and updates only the necessary parts of the real DOM, rather than re-rendering the entire UI.
+    - This approach optimizes updates, minimizes expensive DOM manipulations, and allows for fast, efficient rendering even in complex applications.
+
+- Array Functions:
+    - Iteration: forEach(), map(), filter(), reduce(), some(), every()
+    - Searching: find(), findIndex(), includes(), indexOf()
+    - Modification: push(), pop(), shift(), unshift(), splice(), concat()
+    - Rearrangement: sort(), reverse(), slice()
+    - Others: reduceRight(), flat(), flatMap(), join()
+
+- Lifecycle Methods:
+    - Component Mounting: useEffect(() => { /* mount logic */ }, [])
+    - Component Updating: useEffect(() => { /* update logic */ }, [dependencies])
+    - Component Unmounting: useEffect(() => { return () => { /* cleanup logic */ } }, [])
+
+- Handle errors in React components:
+    - Using try/catch block in each component
+    - Error boundary:
+        - class: static getDerivedStateFromError() or componentDidCatch()
+        - functional components: react-error-boundary
