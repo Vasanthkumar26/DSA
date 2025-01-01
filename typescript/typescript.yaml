@@ -1,0 +1,22 @@
+- TS is not about reinventing JS
+- TS is all about Type Safety
+- TS is just for static checking [Analyze the code as we type]
+- TS is a development tool, but the project still runs on JS
+- TS is a super set of JS
+- tsc -v => to check version of TS
+- basic types in TS:
+    - all the types are lowercase
+      - Number
+      - String
+      - Boolean
+      - Null
+      - Undefined
+      - Void
+      - Object
+      - Array
+      - Tuples
+      - Any
+      - Never
+      - unkown
+- syntax:
+    - let variableName:- type = value
