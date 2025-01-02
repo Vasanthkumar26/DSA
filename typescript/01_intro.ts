@@ -77,4 +77,15 @@ function createUser1(user: User): User {
 }
 createUser1({ name: "", mail: "", isActive: false });
 
+// Readonly and Optional
+// If we have an array in readonly we cannot able to push or update values
+// readonlyArray.push(4); // This will throw a TypeScript error
+// readonlyArray[0] = 10; // This will also throw an error
+type User1 = {
+    readonly _id: string;
+    name: string;
+    email: string;
+    isActive: boolean;
+    salary: number;
+}
 export { };
