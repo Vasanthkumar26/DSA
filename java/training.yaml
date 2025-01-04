@@ -1,0 +1,166 @@
+- Java:
+    - Simple programming language:
+        - syntax is clear and concise
+        - It has removed concepts like explicit pointers, operator overloading, etc.,
+        - It takes care of memory management
+        - Provides automatic garbage collector
+    - Platform independent language:
+        - Program in Java after compilation are converted into intermediate level language [byte code]
+        - This makes java highle portable as byte code can run on any machine by Java Virtual Mavhine [JVM]
+    - Object Oreiented Programming
+    - Robust language
+    - Multi threaded labguage:
+        - can perform multiple tasks at once
+        - A program that manages a GUI while waiting for input from a network connection uses another thread to perform and wait instead of using the default GUI thread for both tasks
+    - It can create applets:
+        - Applets are programs that run on web browser
+        - it was deprecated in Java 9 and has been removed in Java 11 due to waning browser support of Java plugin
+    - They don't need preprocessor:
+        - It is not mandate to have header files for creating Java application
+
+- Key features:
+    - Simple
+    - Secure
+    - Portable
+    - Object Oriented
+    - Robust
+    - Architecture neutral
+    - Distributed
+    - Dynamic
+
+- Java Program Execution:
+    - Class loader:
+        - loads class file for JVM execution
+    - Bytecode Verifier:
+        - Verifies bytecode
+        - restricts object from illegal access to other parts of system
+    - Interpreter:
+        - read bytecode instructions and executes them line by line
+
+- Java Virtual Machine [JVM]:
+    - abstract VM, does not exist physically
+    - provides secure runtime env to execute bytecode generated through compiler
+    - It actually invokes main() method present in Java program
+    - It is part of JRE
+    - Java application are called WORA [Write Once Run Anywhere]
+
+- Java Runtime Environment [JRE]:
+    - It can also be said as Java RTE
+    - it provides minimum req for executing Java applicaition
+    - It consists of JVM, Core classes, supporting files
+
+- Java Development Kit[JDK]:
+    - Provides environment to develop and execute
+    - It contains JVM, interpreter/loader (java), a compiler (javac), an archiver (jar), documentation generator(javadoc)
+    - https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190430121729/jvm_jdk_jre-1024x837.png
+
+- First Program:
+    - class Welcome {
+      public static void main(String args[]) {
+      System.out.println("Hello, World");}}
+
+    - class definition:
+        - The keyword "class" to declare that a new class is being defined.
+    - Welcome - Name of the class
+    - The entire class definition, including all of its members, will be between the opening curly brace
+    - main method:
+        - In Java programming language, every application must contain a main method
+        - Syntax - public static void main(String[] args)
+        - public:
+            - So that JVM can execute the method from anywhere.
+        - static:
+            - Main method is to be called without object. The modifiers public and static can be written in either order.
+        - void:
+            - The main method doesn't return anything.
+        - main():
+            - Name configured in the JVM.
+        - String[]:
+            - The main method accepts a single argument, an array of elements of type String.
+
+- Variables:
+    - For variables we use camelCase letters
+    - For constants we use captial letters[upper case]
+    - We use "final" keyword for constant in Java
+    - syntax:
+        - int age = 30;
+        - <data_type> <variable_name> = <value>;
+    - declaring:
+        - int age;
+    - declaring & initializing:
+        - int age = 30, speed = 60;
+        - char var = 'h';
+    - There are 3 types of variables:
+        - Local Variables:
+            - A variable defined within a block or method or constructor is called a local variable.
+            - The initialization of local variables is mandatory.
+        - Instance Variables:
+            - Instance variables are non-static variables declared in a class outside any method, constructor, or block.
+        - Static Variables:
+            - Static variables are also known as Class variables.
+            - Declared using the static keyword within a class outside any method, constructor, or block
+
+- Data Types:
+    - Primitive Data Types:
+        - boolean:
+            - defaultvalue = false
+            - boolean a = false;
+            - boolean b = true;
+        - byte:
+            - 8-bit signed two's complement integer.
+            - values = (neg)128 to 127
+            - defaultvalue = 0
+            - byte a = 126;
+        - short:
+            - 16-bit signed two's complement integer.
+            - values = (neg)32768 to 32767
+            - defaultvalue = 0
+            - short s = 56;
+        - int:
+            - 32-bit signed two's complement integer.
+            - values = (neg)2147483648 to 2147483647
+            - defaultvalue = 0
+            - int i = 89;
+        - long:
+            - 64-bit two's complement integer.
+            - values = (neg)9223372036854775808 to 9223372036854775807
+            - defaultvalue = 0
+            - long l = 12121;
+        - float:
+            - single-precision 32-bit IEEE 754 floating-point
+            - Use a float (instead of double) if you need to save memory
+            - defaultvalue = 0.0f
+            - float f = 4.7333434f;
+        - double:
+            - double-precision 64-bit IEEE 754 floating-point.
+            - for decimal values, it is default data type
+            - defaultvalue = 0.0
+            - double d = 4.355453532;
+        - char:
+            - single 16-bit Unicode character.
+            - values = '\u0000' (0) to '\uffff' (65535)
+            - defaultvalue = '\u0000' (0)
+            - char a = 'G';
+    - Non-Primitive Data Types:
+        - It will contain a memory address of variable values because the reference types won’t store the variable value directly in memory.
+        - String:
+            - string is designed to hold a sequence of characters in a single variable
+            - a character array is a collection of separate char-type entities.
+        - Class:
+            - It is a user-defined blueprint or prototype from which objects are created.
+            -
+        - Object:
+        - Interface:
+        - Array:
+
+- DSA:
+    - DSA - Data Structure & Algorithms
+    - How to write an efficient code and runs the code fast
+    - This will save hardware cost and better user experience
+    - Analysis of Algorithms:
+        - With Asymptotic analysis we can tell which program is more effecient theoretically
+        - Big O Notation is also related to asymptotic analysis
+        - measure order of growth of program
+        - It does not depend on machine, programming language, test cases, etc.,
+        - No need to implement, we can analyze them
+        - A function with higher order of growth is less effecient [n -> inf g(n)/f(n) = 0 / n -> inf f(n)/g(n) = inf]
+        - A funciton with lower order of growth is more effecient
