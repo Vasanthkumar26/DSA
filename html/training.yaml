@@ -1,0 +1,265 @@
+- meta tags:
+  - describes content of web page
+  - not visible in web page and are placed in header
+  - search engines use these content to understand content
+  - charset:
+    - specifies character encoding, HTML5 encourages UTF-8
+    - Should be the first element in head tag
+    - <meta charset="UTF-8" />
+  - viewport:
+    - controls layout on different devices / screen sizes
+    - width is set to width of the device
+    - initial scale is set to 1.0 and ensures no unwanted zoom
+    - <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  - keywords & description":
+    - Description is displayed in search results
+    - Desc. should not be more than 160 characters
+    - Keywords should be realted to page content
+    - <meta name="description" content="This is a sample page to learn HTML, CSS" />
+    - <meta name="keywords" content="HTML, CSS" />
+  - author:
+    - provides info about conent author
+    - good to use on blog posts
+    - <meta name="author" content="Vasanthkumar" />
+  - robots:
+    - controls how search engine indes the page
+    - index/noindex tells whether to index the page or not
+    - follow/nofollow tells whether to index and follow links
+    - <meta name="robots" content="index, follow"/>
+
+- texts:
+  - <h1> is high content
+  - It is good to have only one <h1> in a webpage
+  - these are block line elements [Takes one line for each tag]
+  - Even if we place <h1> & <h2> in same line both will appear in separate line in UI
+  - <p> = Will create a paragraph with inline styles
+  - <strong> = Will make bold
+  - <em> = will make italics
+  - <mark> = will highlight / give background for text
+  - <del> = will create a line over the text
+  - <ins> = Will underline the text
+  - <sub> = Will create a subscript
+  - <sup> = will create a superscript
+
+- Lists:
+  - unordered list:
+    - <ul><li></li></ul>
+  - ordered list:
+    - <ol><li></li><ol>
+  - definition list:
+    - <dl>
+        <dt></dt>
+        <dd></dd>
+      </dl>
+
+- anchor tags:
+  - Used to open or navigate to links
+  - target is mostly used in externa link
+  - external link:
+    - <a href="https://www.google.com" target="_blank" title="click to visit google page">Visit Google</a>
+    - target="_blank" wil open link in new tab
+  - relateive link:
+    - <a href="about.html">About Page</a>
+  - internal link:
+    - <a href="#services">Go to Services</a>
+    - when we click on the about link it will move to the tag with id="services"
+  - email link:
+    - <a href="mailto:example@example.com">Send an email</a>
+  - file link:
+    - <a href="invoice.pdf">Download Document</a>
+
+- image tags:
+  - src = location of image
+  - alt = alternate text if image not displayed
+  - relative path:
+    - <img src="/imgae.png" alt="sample image" width="400" height="300" title="beautiful landscape" />
+  - absolute path:
+    - <img src="https://picsum.phots/200/300" alt="random image" />
+  - fig and figcaption:
+    - <figure>
+        <img src="landscape.png" alt="Landscape" />
+        <figcaption>Fig.1 - Beautiful Landscape</figcaption>
+      </figure>
+
+- inline | block:
+  - inline occupy only sufficient width required | block occupy full with irrespective of their sufficeincy
+  - It don't start in a new line | Always starts in a new line
+  - They allow other inline elements to sit behind | they don't allow other elements to sit behind
+  - They don't have top & bottom margin | They have top & bottom margin
+  - <span>, <a>, <img>, <button>, <input>, <label>, <small>, <strong>, <em>, <mark>, <ins>, <del>, <sub>, <sup> | <div>, <p>, <h1 - h6>, <ul>, <ol>, <li>, <table>, <form>, <header>, <footer>, <section>, <nav>, <article>, <aside>, <main>, <blockquote>, <hr>, <pre>
+
+- Line breaks, Horizontal rules, entities:
+  - <br /> = Will create a line break
+  - <hr /> = will add space and a line between two elements
+  - <pre> Hello W   or  ld
+      Again</pre> = Will display as like the same in UI
+    O/p => Hello W   or  ld
+      Again
+  - <code></code>
+  - entities:
+    - There are different entities for different characters
+    - "&lt", "&gt"
+    - <p>Cpyright &copy; 2024</p> => this will display copyright symbol for &copy;
+
+- semantic elements:
+  - <header> = Header of the layout
+  - <footer> = footer of the layout
+  - <nav> = Navigation area
+  - <main> = main content area
+  - <article> = publication area
+  - <section> = Grouped area
+  - <aside> = sidebar, secondary content
+
+- emmet:
+  - to write HTML, CSS faster
+  - docs.emmet.io
+
+- forms:
+  - HTML can display only forms, not process them
+  - <form> tag needs to have <input> tags
+  - action is the server sode event and method is the HTTP method to use
+  - <form action="/api/process" method="POST">
+      <input type="text" name="test" id="test" /> 
+    </form>
+  - text based:
+    - <form>
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter name"
+          minlength="3"
+          maxlength="25"
+          value="Vasanth"
+          disabled
+          required />
+        <div>
+          <input type="submit" value="Submit" /> // This will create a button
+        </div>
+      </form>
+  - selection based:
+    - multiple is used to select multiple options
+    - size is used to tell how many options to show
+    - selected is used to have default selected
+    - <form>
+        <label for="product">Product</label>
+        <select name="product" id="product" multiple size="2">
+          <option value="iphone" selected>iPhone</option>
+          <option value="macbook">Mac</option>
+          <option value="macbook-pro">Macbook Pro</option>
+        </select> 
+      </form>
+  - checkbox:
+    - <form>
+        <label for="html">
+          <input 
+            type="checkbox" 
+            name="languages" 
+            id="html" 
+            value="html" />HTML
+        </label for="css">
+        <label>
+          <input 
+            type="checkbox" 
+            name="languages" 
+            id="css" 
+            value="css" />CSS
+        </label>
+      </form>
+  - Radio buttons:
+    - <form>
+        <label for="small">
+          <input type="radio" id="small" name="size" value="small" />
+         </label> 
+        <label for="medium">
+          <input type="radio" id="medium" name="size" value="medium" />
+         </label> 
+      </form>
+
+- audio:
+  - <audio src="./song.mp3" type="audio/mp3" controls></audio>
+  - <audio controls>
+      <source src="./song.mp3" type="audio/map3" />
+      # Fallback
+      <p>Browser doen't support</p>
+    </audio>
+  - <audio src="./song.mp3" autoplay controls></audio>
+  - <audio src="./song.mp3" autoplay controls loop></audio>
+  - <figure>
+      <figcaption>Listen to song</figcaption>
+      <audio src="./song.mp3" controls></audio>
+      <a href="./song.mp3">Download Audio</a>
+    </figure>
+
+- video:
+  - <video src="./video.mov" type="video/quicktime" controls autoplay loop muted></video>
+
+- image map:
+  - This makes the image clickable
+  - <img src="./computer.jpg" alt="computer image" usemap="#computermap">
+    <map name="computermap">
+      <area shape="rect" coords="34,44,270,350" href="computer.html" alt="computer">
+    </map>
+
+- table:
+  - colspan="2" = spreads the column for 2 columns
+  - <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th colspan="2">Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Vasanthkumar</td>
+          <td>Sadasivam</td>
+        </tr>
+      </tbody>
+    </table>
+
+- iframe:
+  - <iframe src="https://www.google.com" frameborder="0"></iframe>
+  - <iframe src="https://youtube.com/embed/dfasdfadsf" frameborder="0"></iframe>
+  - We can also show pdf, maps, calender in iframe by changing the src value
+  - we can also use embed & object tags for the same
+  - <embed src="https://youtube.com/embed/dfasdfadsf" width="500" height="400" />
+  - <object src="https://youtube.com/embed/dfasdfadsf" width="500" height="400" />
+
+- global attributes:
+  - id
+  - class
+  - style
+  - access key
+  - title
+  - hidden
+  - tabindex
+  - contenteditable
+  - draggable
+  - autofocus
+
+- Popover:
+  - <button popovertarget="popover-1">Open popper 1</button>
+    <div popover id="popover-1">This is Popover 1</div>
+    <button popovertarget="popover-2">Open popper 2</button>
+    <div popover id="popover-2">
+      <h4>This is Popover 2</h4>
+      <p>Hello from poper<p>
+    </div>
+  - <details>
+      <summary>Details</summary>
+      This will show the details of the page
+    </details>
+
+- progress, meter:
+  - <label for="file">File Progress</label>
+    <progress id="file" max="100" value="50">50%</progress>
+  - we can enter values 50% or leave it [it is not mandate]
+  - <label for="fuel"></label>
+    <meter value="30" id="fuel" min="0" max="100" low="30" high="90" optimal="80">50/100</meter>
+  - meter is the derivative or advanced tag of progress
+  - meter will have more additional options like low, high, optimal
+
+-
