@@ -147,10 +147,41 @@
             - a character array is a collection of separate char-type entities.
         - Class:
             - It is a user-defined blueprint or prototype from which objects are created.
-            -
+            - Modifiers: A class can be public or has default access
+            - Class name: The name should begin with an initial letter
+            - Superclass: A class can only extend (subclass) one parent.
+            - Interfaces: A class can implement more than one interface.
+            - Body: The class body is surrounded by braces, { }.
         - Object:
         - Interface:
         - Array:
+
+- Wrapper Classes:
+    - They convert primitive data types into objects
+    - The classes in java.util package handles only objects, so we can use wrapper class
+    - An object is needed to support synchronization in multithreading.
+    - Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and not primitive types
+    - Primitive -> Wrapper
+      char -> Character
+      byte -> Byte
+      short -> Short
+      int -> Integer
+      long -> Long
+      float -> Float
+      double -> Double
+      boolean -> Boolean
+
+- Autoboxing:
+    - Conversion of a primitive value into an object of the corresponding wrapper class.
+    - The Java compiler applies autoboxing when a primitive value is:
+        - Passed as a parameter to a method that "expects an object" of the corresponding wrapper class.
+        - Assigned to a variable of the corresponding "wrapper class".
+
+- Unboxing:
+    - Converting an object of a wrapper type to its corresponding primitive value.
+    - The Java compiler applies to unbox when an object of a wrapper class is:
+        - Passed as a parameter to a method that "expects a value" of the corresponding primitive type.
+        - Assigned to a variable of the corresponding "primitive type".
 
 - DSA:
     - DSA - Data Structure & Algorithms

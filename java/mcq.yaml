@@ -1,0 +1,27 @@
+- Why cache memory is faster than other memory:
+    - It is attached closest to CPU as compared to other memory
+- Can we use start and operate computer without cache memory:
+    - Yes, main use of cache memory is to store frequently use data in computer during execution time.
+    - If we don't use it, time to access the data will increase
+- Why Java is more secure than other languages:
+    - It doesn't support pointers and pass-by-reference conpets
+- Can we debug the Java program using debugger without JDK:
+    - No, Debugger is part of dev tools that come with JDK
+- Can we run java program without main() method:
+    - No, whenever any program executes JVM run the main() method in java file
+- Will below code execute:
+    - class gfg {
+      static public void main(String args[]) {}}
+    - Yes, But there will be no output
+- Which is used to compile a java program:
+    - javac
+- what is JDk:
+    - Java Development Kit
+- Write syntax of main method:
+    - public static void main(String[] args)
+- Write output of below code:
+    - public class HelloWorld {
+      public static void main(String[] args) {
+      System.out.print("Hello, ");
+      System.out.print("World!"); }}
+    - Hello World!
