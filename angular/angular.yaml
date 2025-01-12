@@ -1,0 +1,71 @@
+- Angular:
+    - It is a Frontend JS Framework
+    - It helps in building interactive UI
+    - It is also collenction of tools and features
+    - Stable and evolving framework
+    - Angular 2 => 2016
+    - 2 new major versions every year
+    - Angular 14 => 2022 => Standalone components
+    - Angular 16 => 2023 => Signals
+
+- Why to use angular:
+    - We don't need angular for trivial websites and web apps
+    - When we are using complex we need Angular
+    - Simplifies process of building UI
+    - Write declarative code
+    - Separation of concerns via components:
+        - Break up complex applicaiton into simple building blocks
+        - Split up responsibilities and concerns
+        - Build a component once and re-use it as often as needed
+    - Object Oriented Programming concepts and principles
+    - Uses TS
+
+- Create an Angular project:
+    - Angular CLI => Simplifies process of creating angular project
+    - npm install -g @angular/cli
+    - ng new <project_name> => will create new angular project
+
+- Essentials:
+    - npm start => ng serve
+    - index.html is the first file loaded
+    - main.ts will be executed while loading index.html
+    - Components in the Angular are classes enhanced by decorators
+    - We need to explicity tell Angular that we need to use which component
+    - ng generate component <component_name> <component_path> [ng g c <component_name> <component_path>]
+    - If we add "private" in front of the variable name in the class it will not be accessible in component.html
+    - Most important topics:
+        - String interpolation => {{ }} [Used to get values from component.ts]
+        - Property binding => [<attribute_name>] = "<attribute_value>"
+        - getter functions:
+            - used to manipulate value in ts and use them in html
+            - this is mainly used to avoid writing fuctional logics in html to get a value
+        - Event binding => (click) = "<click_event_name)()"
+    - bootstrapApplication:
+        - to load the application => introduced in Angular 14
+        - It aligns with Angular's move towards more modular and lightweight applicaiton
+        - Removes un-necessary codes for smaller build [Tree - Shaking]
+        - Developers can avoid creating boiler plate Appmodule
+    - Decorator:
+        - Component is a decorator [@Component]
+        - This is used to add some meta data to the application
+        - This is coming from angular framework [@angular/core]
+        - We want to add selector, template / templateUrl
+        - standalone [this will be true by default for Angular version above 19]
+    - Change detection mechanism => zone.js:
+        - zone.js is used to detect the changes in the state and render the UI
+        - zone.js notifies Angular about user events, expired timers, etc.,
+    - signals:
+        - supported since Angular 16
+        - Using signals we can notify Angular about value changes & UI updates
+        - It requires special "signal" instructions & code
+        - A signals is an object that stores any type of value [even nested objects]
+        - computed() is always used with signals
+        - If any of the state changes this computed() will not render
+        - computed() will be executed only when any of the signal values used in the compute changes
+        - This can be used to improve the performance
+    - Input Decorator @Input:
+        - This is used to get value from Parent
+        - If we are not passing any value to variable from parent we can use @Input <variable_name>!:string;
+        - Required => @Input({ required:true })
+        - If we are not passing some value in Parent with required:true, it will throw error
+        -
