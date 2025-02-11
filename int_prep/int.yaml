@@ -181,3 +181,247 @@
     - Error boundary:
         - class: static getDerivedStateFromError() or componentDidCatch()
         - functional components: react-error-boundary
+
+- Scope in JS:
+    - Gloabal scope:
+        - Variables that are defined outside of any function / block
+        - These can be accessed and madified from anywhere in the program
+    - Functional scope [Local scope]:
+        - Variables declared inside a function
+        - These cannot be accessed or modified outside the function
+    - Block scope:
+        - Variables declared with let or const are limited to the block {}
+        - These variables cannot be accessed outside the block
+        - variables declared with var does not have block scope
+    - Lexical scope:
+        - It means a varible defined inside a function is accessible only with func and its nested functions
+        - scope is determined at the time of writing, based on where the variables and func are defined
+
+- Scope chain in JS:
+    - It determins how variables are resolved in nested functions
+    - When a vairable is accessed, JS searches in following order
+      - Local scope => innermost function or block scope where variable is declared
+      - Parent scope => If not found in local, it will check in parent function's scope
+      - Global scope => If still not found, It searches in global scope
+      - Unresolved => If a varible isn't found anywhere, it throws Reference Error
+
+- Debouncing:
+    - If we click on a button many times there may chance of inresponsive and too many API calls
+    - Debouncing allows us to ensure certain tasks don't fire too often
+    - A debounce function is a Higher order function that returns other function
+    - const <function_name> = debounce(() => {
+      console.log("Test Debounce") }, 500);
+
+- Throttle:
+    - It is firing event between intervals
+    - If we click on button for first time it will execute the action
+    - If we keep on clicking, it will not fire the event until a sp. time interval has passed
+
+- program1:
+    - const obj = {
+      value:42,
+      toString() {
+      return "hello"},
+      valueOf() {
+      return 50}}
+
+      console.log(String(obj), Number(obj), obj+"", obj+10, obj.value, String(obj)+10)
+      hello 50 50 60 42 hello10
+
+- program2:
+    - let name = "Vasanth"
+      age = 30 [This will add age to global object]
+
+      console.log(delete name); // false [delete will not work in let, var, const]
+      conosle.log(delete age); // true [it removes age from global object]
+
+- program3:
+    - let arr = [1, 2];
+      for(var i = 0; i < arr.length; i++) {
+      setTimeout(() => {
+      console.log(i)}, 1000)}
+
+      o/p => 2, 2
+
+- program4:
+    - const arr = [1,2,3,4]
+
+      console.log(1 in arr); // true
+      console.log(2 in arr); // true
+      console.log(4 in arr); // false [index 4 is not in arr so it will return false]
+      array is an object
+      key of array is index
+
+- program5:
+    - let x = 10;
+      console.log(x++) // 10
+      We are using post increment, it will first return the value then it will increase
+
+- program6:
+    - let y = 10;
+      console.log(++y) // 11
+      We are using pre increment, it will first increment and then return the value
+
+- program7:
+    - let str = "Vasanth";
+      str[0] = "S"
+      console.log(str) // Vasanth
+
+- program8:
+    - let a = 1<2<3; => 1(true) < 3 => true
+      let b = 1>2>3; => 0(false) > 3 => false
+      console.log(a,b) // true, false
+
+    - let x = 10 > 9 > 8; => 1(true) > 8
+      console.log(x === true) => false === true => false
+
+- program9:
+    - let arr = [1,2];
+      let rev = arr.reverse();
+      console.log(arr, rev) // [2,1], [2,1]
+
+- program10:
+    - let x = 1;
+      let y = 2;
+      console.log(x++ + ++y) // 4 [x++ => 1, ++y => 3]
+
+- program11:
+    - let x;
+      if(x == 1 && x == 2 && x == 3) {
+      console.log("Hello")}
+
+      Modify x to satisfy the condition
+      let x = {
+      flag:1,
+      toString() {
+      return this.flag++}};
+
+- program12:
+    - const x = { name:"Vasanth" }
+      const arr = ["name"]
+      x[arr] = "Kumar"
+      console.log(x.name) // Kumar
+      => x[arr] will change to x["name"] because object can have key of string and symbol
+
+- program13:
+    - console.log([] == []) // false
+      => because object are stored based on reference
+
+- program14:
+    - const x = [];
+      x[4] = 1;
+      x.forEach((i) => {
+      console.log("Hi")})
+
+      o/p => "Hi"
+      Because forEach will not consider undefined / empty
+
+- program15:
+    - x++
+      console.log(x);
+      var x = 21;
+
+      o/p => NaN
+      x is hoisted with a value of undefined
+
+- program16:
+    - let newList = [1].push(2);
+      console.log(newList.push(3));
+
+      o/p => It will throw type error
+      in first line .push(2) will return length of array
+      in second line 2.push(3) is not a valid syntax
+
+    - const arr = [];
+      arr.push(1);
+      console.log(arr) // [1]
+
+- program17:
+    - y = 10;
+      var x = 1 + y;
+      console.log(x) // 11
+      => because y will be stored as a global variable in global object
+
+    - let val = "5" - 2;
+      console.log(val) // 3
+
+    - console.log(2+"3"+4) // 234
+
+    - let x = "8";
+      let a = 1;
+      console.log(+x+a+1) // 10
+
+- program18:
+    - console.log(3+4+"5") => 75
+    - var person = {
+      name:"Vasanth",
+      hello:function(){
+      console.log(this.name)}}
+
+      person.hello() => "Vasanth"
+
+- program19:
+    - var str1 = "Vasanth";
+      var str2 = str1;
+      str2 = "Kumar";
+      console.log(str1) // Vasanth
+
+    - let str = "Change";
+      str = str.replace("C", "R");
+      console.log(str) // Rhange;
+
+    - var obj1 = { prop:42 }
+      var obj2 = obj1;
+      obj2.prop = 90
+      console.log(obj1) // { prop:90 }
+
+    - var obj1 = { prop:42 }
+      var obj2 = obj1;
+      obj2 = {}
+      console.log(obj1) // { prop:42 }
+      Because reassigning will not change the value
+
+    - var arr1 = [0];
+      var arr2 = arr1;
+      arr2[0] = 42;
+      console.log(arr1) // [42]
+
+    - var arr1 = [1,2];
+      var arr2 = arr1.slice();
+      arr2[0] = 42;
+      console.log(arr1) // [1,2]
+
+    - var a = [1,2];
+      var b = a;
+      b.push(3);
+      console.log(a) // [1,2,3]
+
+- program20:
+    - const str = "abc" + +"def";
+      console.log(str) // abcNaN
+      It will try to convert "def" to number it will return NaN
+
+- program21:
+    - const arrowFunc = () => {
+      console.log(this.count);}
+      arrowFunc()
+
+      o/p => undefined
+      Arrow func will not have this keyword
+      it will try to check in lexical scope since there is no count in lexical scope it will return undefined
+
+- program22:
+    - let a = true;
+      let b = true;
+      let c = false;
+      console.log(a && b || c) // true
+
+- program23:
+    - let obj = { age:24 }
+      let { age:userAge } = obj;
+      console.log(age) // Ref error
+      console.log(userAge) // 24
+
+- program24:
+    - console.log(1 || 2 && 3) => 1 || 3 [gets last truthy value] => 1 [takes first truthy value]
+    - AND has more precedence
