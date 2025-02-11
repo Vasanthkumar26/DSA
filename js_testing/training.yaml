@@ -1,0 +1,140 @@
+Testing:
+  - Somthing works as intended
+  - Types of testing:
+      - Manual testing:
+          - Teadious & cumbersome
+          - Error prone
+          - Often incomplete (not all scenarios covered)
+      - Automated testing:
+          - Initial effort, no effort thereafter
+          - Predictable & consistent
+          - High / complete code & scenario coverage can be achieved
+  - Unit tests:
+      - A building bloack of the app
+      - The smallest possible building block
+      - E.g a function, a class, a component
+      - If all units were tested, overall app should work
+      - Backed up by integration test
+      - Changes are always tested against all units to avoid bugs
+      - Avoid endless amount of unit testing
+      - easier to cover 100% of our code and scenarios
+      - Code changes are tested against all scenarios instantly
+      - Write cleaner & better code
+      - Quickly spot and pinpoint breaking changes and errors
+      - Ignores actual userflow and interferences
+  - Integrations testing:
+      - Test the combination of building blocks
+      - verify if building blocks(units) work together
+      - Even if all units work standalone, the combination could fail
+      - Tests processes & combination of units
+      - Spotting exact root of an error can be tricky
+  - End to End testing:
+      - Tests entire flow and application feature
+      - Tests the actual things real users would do
+      - Real users use your app and its feature, not individual units
+      - Test realistic userflow and behaviors
+      - Covering all possible behaviors can be challenging
+  - TDD [Test Driven Development]:
+      - A framework / philosophy for writing tests
+      - Write a failing test first
+      - Implement the code to make the test succeed
+      - Refactor
+  - Test Runner:
+      - Run your tests
+      - Automatically detect testing code
+      - Display results
+      - E.g.:Jest,Karma,Vitest
+  - Assertion Library:
+      - Used to define extended outcomes
+      - Check whether expectations are met
+      - Supports all kind of expectations and models (sync/async)
+      - E.g.:Jest,Chai,Vitest
+      - Jest doesn't work good with ECMAScript
+      - Vitest supports ECMA & bit faster than Jest
+  - File Name:
+      - Testing file name ends with .test.js/ .spec.js/ .text.ts/ .spec.ts
+  - AAA Test:
+      - AAA - Arrange, Act, Assert
+      - Arrange - Define the testing environment & values
+      - Act - Run the actual code / function that should be tested
+      - Assert - Evaluated the produced value / Result and compare it to to the expected value / Result
+  - Not:
+      - we can also add not to check the values in not equal
+      - expect(result).not.toBe(0);
+  - toThrow():
+      - Instead of try catch we can create an arrow function to check for errors
+      - it("should throw error if no value passsed", () => {
+        const resultFn = () => {
+        add();};
+        expect(resultFn).toThrow();})
+      - toThrow(/is not iterable/) will also get string to know what type of error
+  - expect():
+      - Technically it does not return ture or false
+      - instead it throws an error, if expectations are not met
+      - Test runner treats throw errors as failed tests & tests that does not throw error are passed
+      - We can also have multiple checks to one expect.
+      - if anyone of the toBe throws error it will result in failure of test
+      - expect(+1).toBe(1).toBeTypeOf("number")
+  - describe():
+      - To define a test suite
+      - describe("testSuite", () => {
+        it("test1", () => {});
+        it("test2", () => {});});
+      - We can also have nested describe
+  - What should and shouldn't be tested:
+      - Only test your code
+      - Don't test third party code & browser API
+      - Don't test server side code implicitly via client side code
+      - Test your client side reaction to different responses and errors
+  - Writing good test:
+      - AAA [Arrange - Act - Assert]
+      - Only test one thing
+      - Focus on the essence of a test when arranging
+      - Keep your number of assertions ("expects") low
+      - one thing -> one feature/one behavior [validate input/transform it]
+      - avoid complex functions
+      - Splitting functions for easier testing and better code
+  - Integration testing:
+      - Testing a function which call other functions
+  - toBe() vs toEqual():
+      - toBe => exactly same [used for primitive values]
+      - toEqual => goes through the value and deep compare both [used for reference values]
+  - Asynchronous testing:
+      - Async code will take sometime to finish
+      - This can be tackled by callbacks, Promises, async await
+      - callback:
+          - Normally jest, vitest will not wait for callback functions to finish
+          - Vitest, Jest will wait for done() to get called
+          - done() will represent that test is completed
+          - if we use done() error occuring in expect will not be returned
+          - to overcome above issue we need to use our own try & catch block
+          - e.g.:it("should generate token value", (done) => {
+            const testMail = "user@gmail.com";
+            generateToken(testMail, (err, token) => {
+            try {
+            expect(token).toBeDefined();
+            expect(token).toBe(26);
+            done();} catch (err) {
+            done(err);}});});
+      - Promise:
+          - it('should generate a token value', () => {
+            const testUserEmail = 'test@test.com';
+            return expect(generateTokenPromise(testUserEmail)).resolves.toBeDefined();});
+          - We can handle the promises directly in test
+          - We should use return statementin promises, This guarantees the vitest/jest wait for the promise to be resolved
+      - async/await:
+          - We don't need return while using async/await
+          - it('should generate a token value', async () => {
+            const testUserEmail = 'test@test.com';
+            const result = await generateTokenPromise(testUserEmail)
+            return expect().toBeDefined();});
+  - hooks:
+      - Hooks are functions that are executed automatically at some certain point of time
+      - We can use 4 hooks beforeAll, beforeEach, afterEach, afterAll
+  - Concurrent tests:
+      - it.concurrent("test name", () => {})
+      - theoretically it should be bit faster
+      - describe.concurrent("suite name", () => {})
+      - Cons:Tests that perform clashing (global) state manipulations may interfere with each other.
+  - Dealing with side effects [Spies & Mocks]:
+      -
