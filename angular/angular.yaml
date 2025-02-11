@@ -40,6 +40,13 @@
             - used to manipulate value in ts and use them in html
             - this is mainly used to avoid writing fuctional logics in html to get a value
         - Event binding => (click) = "<click_event_name)()"
+        - Two way binding:
+            - ngModel [It is an directive]
+            - starts with ng are mostly angular elements
+            - We can enhance elements by adding directives to them
+            - directives don't have templates
+            - Components in angular are Directives with template
+            - <input [(ngModel)]="<variable_name>" />
     - bootstrapApplication:
         - to load the application => introduced in Angular 14
         - It aligns with Angular's move towards more modular and lightweight applicaiton
@@ -68,4 +75,72 @@
         - If we are not passing any value to variable from parent we can use @Input <variable_name>!:string;
         - Required => @Input({ required:true })
         - If we are not passing some value in Parent with required:true, it will throw error
-        -
+        - We can receive Input as signal, for that we need to use / import input from @angular/core
+        - avatar = input<value_type>() => initial value is undefined
+        - avatar = input("") => initial value is ""
+        - avatar = input.required("") => here it will throw error because we are making it required and psssing initial value
+        - We cannot change the value received from input in child component
+    - Output Decorator "@Output":
+        - syntax => @Output() select = new EventEmitter();
+        - this is used to emit events from child to parent component
+        - ($event) will be used in parent to get the value from the child
+        - output is used to values as well
+        - syntax => select = output<value_type>();
+    - Union type |:
+        - this is used to specify like the variable can have any one of the data types
+        - syntax => name:string|undefined
+        - we can also use name?:string
+    - type alias:
+        - This is use the create a data-type
+        - syntax => type <type_name> = {
+          id:<data_type>;
+          name:<data_type>;
+          avatar:<data_type>;}
+    - interface:
+        - another way of defining option type
+        - syntax => interface <interface_name> {
+          id:<data_type>;
+          name:<data_type>;
+          avatar:<data_type>;}
+        - We can add type before type / interface where we import to confirm it is type category
+    - for loop:
+        - "@for(<name> of <item>; track <name>.id) {}"
+        - track helps Angular to keep track of the details rendered
+        - ngFor is structural directive [That will change the DOM]
+        - syntax => *ngFor="let <name> of <names>"
+        - e.g => <li *ngFor="let user_detail of users">
+          <app-user [user]="user_detail" (select)="onSelectUser($event)" />
+          </li>
+        - for using ngFor we need to import that from @angulr/common and then add it to imports array
+    - conditional content rendering:
+        - "@if(<condition>) {} @else {}"
+        - "@for, @if => were introduced in Angular 17"
+        - syntax => *ngIf="<value>; else fallback"
+        - <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name" />
+          <ng-template "#fallback">
+          <p id="fallback">Select a user to see their tasks!</p>
+          </ng-template>
+    - Content Projection [ng-content]:
+        - <app-card>
+          <ng-content />
+          </app-card>
+        - Here <ng-content /> is used to display the child components within <app-card />
+        - This mechanism and feature is called Content Projection
+    - pipes [transofrm output]:
+        - Things that transform output in templates
+        - <h1>{{ dueDate | date }}</h1>
+        - <h1>{{ dueDate | date:"short" }}</h1>
+    - Services in Angular:
+        - Dependency injection:
+            - This will allow angular to create an instance once and we can use the same instance multiple places
+            - This is used to avoid creating multiple instances
+            - We tell "angular" which type of value we need & angular creates it and provides it as an argument
+    - Modules [NgModule]:
+        - For grouping components together and structuring the application
+        - This exist for historic reasons because there was no standalong components previously
+        - Make components [& more] available to each other
+        - cons:once the component decorator becomes leaner and we need to create to extra modules
+        - One way to import a compent into module is by making standalone to false
+        - imports[]:
+            - This will enable using standalone components in Modules
+            - We can include other modules as well [e.g.:BrowserModule]
