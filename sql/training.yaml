@@ -1,0 +1,25 @@
+- SQL:
+    - language to communicate with databases
+    - These commands help to store, process, analyze and manipulate databases
+    - Initially developed by IBM
+    - Features:
+        - Lets you to access any data within relational databases
+        - Very fast in retrieving large amount of data very efficiently
+        - It is versatile as it works with DB's from Oracle, IBM, Microsoft, etc.,
+        - Helps to manage DB without knowing lot of coding
+    - Database:
+        - Storage system that has a collection of data
+        - relational db store data in form of table
+        - They can be easily retrieved, managed & updated
+    - Popular DB's:
+        - MySQL
+        - Oracle DB
+        - Microsoft SQL
+        - PgSQL
+        - Apache Cassandra => Free, Open Source & No SQL DB
+        - MongoDb => No SQL DB
+    - Applications:
+        - Create DB, define it's structure, implement it and let us perform any functions
+        - Maintain already existing DB
+        - Extensively used as Client/Server language to connect to front-end with back-end
+        - When deployed as DCL [Data Control Language] helps protect you DB from unauthorized access
