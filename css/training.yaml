@@ -1,0 +1,135 @@
+- implementing:
+    - inline CSS = Add CSS to HTML tag
+      - <div style="color:blue; font-size:50px">CSS</div>
+    - Internal CSS = Add CSS within <style> tags
+      - <style>
+      h1 {
+      color:blue;
+      font-size:50px}
+      </style>
+    - External CSS = CSS in it's own file
+      - <link rel="stylesheet" href="./style.css" />
+
+- selectors:
+    - selector syntax:
+        - selector {
+          property1:value1;
+          property2:value2;}
+
+    - type selector:
+      -  h1 {
+            color:blue;
+            font-size:50px}
+
+    - class selectors:
+        - .sporty {
+            color:blue;
+            font-size:50px}
+
+    - id selectors:
+        - "#model {"
+            color:blue;
+            font-size:50px}
+
+    - descendants:
+        - "#container p {"
+            background-color:blue}
+        - It will target all p within id container
+
+    - html, body selector
+        - html, body {
+        font-style:""}
+    - multiple selector:
+        - .sporty, .casual {
+             font-size:35px}
+
+- Fonts:
+    - Need to be imported into a project using @font-face rule or Google Fonts
+    - Can be imported using <link> or @import
+    - font-size:x-large
+    - font-style:italics
+    - font-weight:700
+    - font-variant:small-caps
+    - font:italic small-caps 700 24px Arial;
+    - text-transform:uppercase
+    - text-transform:capitalize
+    - text-indent:20px
+    - letter-spacing:2px
+    - word-spacing:5px
+    - text-align:center
+    - line-height:1.6
+
+- Colors:
+    - Where to use colors
+    - color = text color
+    - background-color = background colors
+    - border = border colors
+    - oultine = outline colors
+    - box-shadow = box drop shadows
+    - text-shadow = text drop shadows
+    - fill = SVG fill colors
+    - Hexa-decimal values = #RRGGBB
+    - RGB values 
+        - (0-255)
+        - rgba(0,0,0,0.5)
+        - 0.5 = transparency
+    - HSL values
+
+- Box model:
+    - content = Text, Images, etc.,
+    - padding = space between content and border
+    - border = separates padding and margin
+    - margin = space outside of border
+    - box-shadow:<horizontal-offset> <vertical-offset> <blur-radius(optional)> <spread-radius(optional)> <color>
+
+- position:
+    - static
+    - relative
+    - absolute
+    - fixed
+    - sticky
+
+- Flex:
+    - layout model in CSS that provides an effecient way to arrange, align & distribute elements
+    - Flex items are out in a flex container
+    - 1D layout
+    - single row and col
+    - -------- main axis [Horizontal]
+    - # |cross axis [Vertical]
+    - display:flex
+    - flex-direction:row
+    - flex-wrap:wrap
+    - gap:10px
+    - row-gap:10px
+    - column-gap:10px
+    - justify-content:flex-start
+    - align-items:flex-start
+    - align-self:flex-start
+    - flex-shrink:0 // will not shrink
+    - flex-shrink:2 // will shrink twice
+    - flex-grow:1 // takes remaining space
+    - flex-basis:200px // sets initial size
+    - flex:<flex-grow> <flex-shrink> <flex-basis>
+
+- Grid:
+    - 2D layout
+    - layout system that provides properties to create rows and columns
+    - supported in all browsers
+    - multiple rows and col
+    -           Header
+                Hero
+        Menu |      Main
+        Menu |      Banner
+        Menu | Extra | Image
+    - grid-template-columns:100px 100px; // will create 2 col with 100px
+    - grid-template-columns:auto auto; // will create 2 col with auto
+    - grid-template-columns:100px 100px 100px; // will create 3 col with 100px
+    - fraction unit:Fraction of available space in the container
+    - grid-template-columns:2fr 3fr 2fr;
+    - grid-template-columns:200px 3fr 2fr;
+    - grid-template-columns:repeat(4, 1fr);
+    - grid-template-columns:repeat(4, minmax(200px, 300px));
+    - grid-row-gap:20px;
+    - grid-column-gap:20px;
+    - grid-gap:20px / gap:20px;
+    - grid-template-rows:100px 200px 300px; 
