@@ -21,5 +21,283 @@
     - Applications:
         - Create DB, define it's structure, implement it and let us perform any functions
         - Maintain already existing DB
-        - Extensively used as Client/Server language to connect to front-end with back-end
+        - Extensively used as Client/Server language to connect front-end with back-end
         - When deployed as DCL [Data Control Language] helps protect you DB from unauthorized access
+    - ER Diagram [Entity Relationship Diagram]:
+        - Describes relationship of entites that need to stored in a DB
+        - Structural design for database
+        - Framework using specialized symbols to define the relationship between entities
+        - Created based on three components:
+            - Entities:
+                - Weak enitty
+            - Attributes:
+                - key
+                - composite
+                - multi valued
+                - derived
+            - Relationships:
+                - One to one
+                - One to many
+                - Many to one
+                - Many to many
+        - Helps us to conceptualize DB and helps us to know which field to be embedded for a particular entity
+        - It gives better understanding of the information to be stored in DB
+        - Reduces complexity and saves time to build DB quickly
+        - Helps to describe elements using entity relationship model
+        - symbols:
+            - Rectangle => Entity [E.g Tables]
+            - Oval => Attribute [E.g Columns]
+            - Doube Rectangle [Rectangle within rectange] => Weak entity
+            - Dashed oval => Derived attribute
+            - Dimaond => relationship b/w entities
+            - Double Oval [Oval within oval] => Multi valued attribute
+        - Entity:
+            - Either a living or non living component
+            - Showcased as Rectangle
+            - E.g.:- Student study Courses, Here Students and Courses are entities
+            - Weak Entity:
+                - An entity that relies over another entity
+                - Showcased as double rectangle
+        - Attribute:
+            - Describes property of any entity
+            - Showcased in Oval
+            - E.g.:- Student is Entity => Name, Age, Roll No., Adress is Attribute
+            - Key Attribute:
+                - Uniquely identifies an entity from entity set
+                - Text of key attribute is underlined
+                - E.g.:- Roll no in student entity
+            - Composite Attribute:
+                - An attribute that is composed of other attributes
+                - It is represented with an oval connected to another oval
+                - E.g.:- Name attribute => first_name attribute + middle_name attribute + last_name attribute
+            - Multi valued Attribute:
+                - An attribute posses more than one value
+                - Represented bu double oval
+                - E.g.:- Phone number of student [student can have multiple phone numbers]
+            - Derived Attribute:
+                - Atrribute that can be extracted from other attribute
+                - Represented by Dashed oval
+                - E.g:- Age of Student [Age can be derived from DOB]
+        - Relationship:
+            - Shows relationship between two entities
+            - Represented by diamond
+            - One to one relationship:
+                - Single element of an entity is associated to single element of other entity
+                - E.g.:- Each student will have one ID [Each ID is given to one student]
+            - One to many relationship:
+                - Single element of an entity is associated to more than one element of other entity
+                - E.g:- Each customer can place many orders
+            - Many to one relationship:
+                - More than one element of an entity is related to single element of other entity
+                - E.g.:- Student enrolling for a course, but a course can have many students
+            - Many to many relationship:
+                - More than one element of an entity is related to more thean one element of other entity
+                - E.g.:- Employee can be assigned many project and project can have many employees
+        - How to draw ER:
+            - First identify all the entities
+            - Embed all the entities in rectangle and label them
+            - Identify relation between entities and connect them using a diamond illustrating realtionship in middle
+            - Don't connect relationships to each other
+            - Connect attributes for entites and label them properly
+            - Eradicate any redundant entites or relationships
+            - Make sure ER diagram supports all the data provided to design the DB
+    - Types of SQL commands:
+        - Data Definition Language [DDL]:
+            - Changes the structure of the table
+            - It permanently saves all the changes in DB
+            - CREATE
+            - ALTER
+            - DROP
+            - TRUNCATE
+        - Data Manipulation Language [DML]:
+            - Modify a DB, responsible for all form of changes
+            - These changes are not saved to DB automatically
+            - SELECT
+            - UPDATE
+            - DELETE
+            - INSERT
+        - Data Query Language [DQL]:
+            - SELECT
+        - Data Control Language [DCL]:
+            - Control access to data with DB
+            - Create object realted to user access and privileages
+            - GRANT
+            - REVOKE
+        - Transaction Control Language [TCL]:
+            - Manage DB transactions
+            - COMMIT
+            - ROLLBACK
+    - SQL COMMAND structure:
+        - SELECT col1, col2
+          FROM table_name
+          WHERE cond1, cond2
+          GROUP BY col1, col2
+          HAVING cond1, cond2
+          ORDER BY col1, col2
+    - SQL Data tyes:
+        - Exact numeric:
+            - int
+            - smallint
+            - bit
+            - decimal
+        - Approximate numeric:
+            - float
+            - real
+        - Date & time:
+            - date
+            - time
+            - timestamp
+        - String:
+            - char
+            - varchar
+            - text
+        - Binary:
+            - binary
+            - varbinary
+            - image
+    - SQL Operators:
+        - Arithmetic:
+            - +, -, *, /, %
+        - Logical:
+            - ALL, AND, ANY, BETWEEN, EXISTS
+        - Comparison:
+            - =, !=, <>, >, <, >=, <=, !<, !>
+    - General Functions:
+        - DISTINCT:
+            - To select unique values
+            - SELECT DISTINCT(country) FORM <table_name>;
+        - COUNT:
+            - To get the count of rows
+            - SELECT COUNT(name) FROM <table_name>;
+        - ALIAS:
+            - To give a temporary col name
+            - SELECT COUNT(name) AS count_name FROM <table_name>
+        - SUM:
+            - To get the sum of colums
+            - SELECT SUM(salary) AS total_salary FORM <table_name>
+        - AVG:
+            - To get avg
+            - SELECT AVG(salary) FROM <table_name>
+        - WHERE:
+            - To filter rows
+            - This comes after table name
+            - SELECT * FROM <table_name> WHERE age > 30;
+            - SELECT * FROM <table_name> WHERE city = 'coimbatore' AND city = 'bengaluru';
+            - SELECT * FROM <table_name> WHERE city IN ('coimbatore', 'bengaluru');
+            - SELECT * FROM <table_name> WHERE city = 'coimbatore' OR city = 'bengaluru';
+        - WITHIN:
+            - SELECT * FROM <table_name> WHERE doj BETWEEN '2000-01-01' AND '2000-12-31';
+        - GROUP BY:
+            - This is often used for Aggregation
+            - Group records into summary rows and returns one record for each group
+            - SELECT SUM(salary) AS total_salary FROM <table_name> GROUP BY sex;
+        - HAVING:
+            - Operates on grouped records
+            - returns rows where aggregate function results matched with given conditions
+            - WHERE cannot be used with aggregare(GROUP BY) functions
+            - We can also use values which are not used in SELECT as well
+            - SELECT COUNT(emp_id), city FROM <table_name>
+              GROUP BY city
+              HAVING COUNT(emp_id) > 2;
+        - ORDER BY:
+        - Sorts the record in ascending by default
+        - SELECT * FROM <table_name> ORDER BY salary ASC;
+        - SELECT * FROM <table_name> ORDER BY salary DESC;
+    - String Functions:
+        - UPPER()
+        - LOWER()
+        - LCASE()
+        - LENGTH()
+        - CHARACTER_LENGTH()
+        - CONCAT("Vasanth", " Kumar")
+        - REVERSE()
+        - REPLACE(original_string, to_be_replaced, new_string)
+          REPLACE("Orange is a vegetable", "vegetable", "fruit")
+        - LTRIM() => To trim on left side
+        - RTRIM() => To trim on right side
+        - TRIM() => To trim on both ends
+        - POSITION("search_string" in "original_string"); => If not present it will return 0
+          POSITION('fruit' in 'Orange is a fruit');
+        - ASCII('a') => Returns ASCII value of the string
+    - Date Functions:
+        - CURDATE() => Get current date
+        - CURTIME() => Get current time
+        - NOW() => Get current date and time
+        - DAY(CURDATE()) => Get current day
+        - MONTH(CURDATE()) => Get current month
+        - YEAR(CURDATE()) => Get current year
+        - DATE_ADD(CURDATE(), INTERVAL 1 DAY) => Add 1 day to current date
+        - DATE_SUB(CURDATE(), INTERVAL 1 DAY) => Subtract 1 day from current date
+        - DATEDIFF(CURDATE(), '2020-01-01') => Get difference between two dates
+        - DATE_FORMAT(CURDATE(), '%d-%m-%Y') => Format date
+    - 
+    - Hints:
+        - SHOW DATABASES;
+        - USE mysql;
+          USE <database_name>;
+        - SHOW TABLES;
+        - SELECT * FROM <table_name>
+        - DESCRIBE <table_name>;
+          To check structure of the table
+        - CREATE DATABASE <database_name>;
+
+        - CREATE TABLE <table_name> (
+          <col_name> <data_type>
+          name varchar(25)
+          age int
+          gender varchar(1)
+          date_of_joining date
+          city varchar(50)
+          salary float);
+        - INSERT INTO <table_name>
+          VALUES ("Vasanth", 30, "M", "1995-06-26", "Coimbatore", "10000"),
+          ("Kumar", 31, "M", "2024-06-26", "Bengaluru", "18000");
+        - SELECT (10+20) AS addition;
+        - SELECT (20-10) AS subract;
+        - SELECT LENGTH('India') AS string_length;
+        - SELECT REPEAT('*', 10);
+        - SELECT UPPER('India') AS upper_string;
+        - SELECT LOWER('India') AS lower_string;
+        - SELECT CURDATE(); => Get current date
+        - SELECT DAY(CURDATE()); => Get current day
+        - SELECT NOW(); => Get current date and time
+
+        - CREATE TABLE <table_name> (
+          emp_id int primary key
+          emp_name varchar(50)
+          emp_age int
+          gender char(1)
+          doj date
+          dept varchar(25)
+          city varchar(25)
+          salary float);
+        - DESCRIBE <table_name>;
+        - SELECT dept, ROUND(AVG(age), 2) AS average_age FROM <table_name> GROUP BY dept;
+        - SELECT dept, ROUND(SUM(salary), 2) AS total_salary FROM <table_name> GROUP BY dept;
+        - SELECT city, COUNG(emp_id) FROM <table_name> GROUP BY city ORDER by COUNT(emp_id) DESC;
+        - SELECT YEAR(doj) AS year, COUNT(emp_id) FROM <table_name> GROUP BY YEAR(doj);
+
+        - SELECT product_id, SUM(sell_price * quantity) AS revenue FROM <table_name> GROUP BY product_id;
+
+        - CREATE table <table_name> (
+          product_id int primary key,
+          cost_price float);
+        - SELECT c.product_id, SUM((s.sell_price - c.cost_price) * s.quantity) AS profit 
+          FORM sales AS s
+          INNER JOIN cost AS c
+          WHERE s.product_id = c.product_id
+          GROUP BY c.product_id;
+
+        - SELECT AVG(salary) AS avg_salary, dept FROM <table_name>
+          GROUP BY dept
+          HAVING AVG(salary) > 70000;
+        - SELECT dept, COUNT(emp_id) AS emp_count FROM <table_name>
+          GROUP BY dept
+          HAVING COUNT(emp_id) > 2;
+        - SELECT city, COUNT(emp_id) AS emp_count FROM <table_name>
+          WHERE city <> 'Houston'
+          GROUP BY city
+          HAVING COUNT(emp_id) > 2;
+        - SELECT dept, COUNT(emp_id) AS emp_count FORM <table_name>
+          GROUP BY dept
+          HAVING AVG(salary) > 75000;
