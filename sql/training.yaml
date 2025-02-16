@@ -230,7 +230,25 @@
         - DATE_SUB(CURDATE(), INTERVAL 1 DAY) => Subtract 1 day from current date
         - DATEDIFF(CURDATE(), '2020-01-01') => Get difference between two dates
         - DATE_FORMAT(CURDATE(), '%d-%m-%Y') => Format date
-    - 
+    - Joins:
+        - Used to combine rows of data from two or more tables based on common column between them
+        - Inner Join:
+            - Intersection of both the tables
+            - Returns all the rows from multiple tables as long as the conditions are met
+        - Left Join:
+            - Returns all the rows from left table and matching rows from right table
+        - Right Join:
+            - Returns all the rows from right table and matching rows from left table
+        - Self Join:
+            - Used to join the table with itself
+        - Full Outer Join / Full Join:
+            - Returns all the rows when there is a match in either left or right table
+            - MySQL will not support Full join [we can use Left join and right join with union operator]
+    - Subquery:
+        - It is a SELECT query that is enclosed inside another query
+        - Inner SELECT query is usually used to determine the results of outer SELECT query
+        - 
+
     - Hints:
         - SHOW DATABASES;
         - USE mysql;
@@ -301,3 +319,49 @@
         - SELECT dept, COUNT(emp_id) AS emp_count FORM <table_name>
           GROUP BY dept
           HAVING AVG(salary) > 75000;
+
+        - CREATE TABLE cricket(
+          cricket_id int auto_increment,
+          name varchar(30),
+          primary key(cricket_id));
+        - CREATE TABLE football(
+          football_id int auto_increment,
+          name varchar(30),
+          primary key(football_id));
+        - INSERT INTO cricket (name)
+          VALUES ('Vasanth'), ('Kumar');
+        - SELECT * FROM cricket AS c
+          INNER JOIN football f ON c.name = f.name;
+
+        - SELECT productcode, productname, textdescription
+          FROM products
+          INNER JOIN productlines
+          USING (productlines);
+        - SELECT o.ordernumber, o.status, p.productname, SUM(quantityordered * priceeach) AS revenue
+          FROM orders AS o
+          INNER JOIN orderdetails AS od ON o.ordernumber = od.ordernumber
+          INNER JOIN products AS p on p.productcode = od.productcode
+          GROUP BY ordernumber;
+        
+        - SELECT c.customername, c.customernumber, ordernumber, status
+          FROM customer AS c
+          LEFT JOIN orders AS o ON o.customernumber = c.customernumber
+          WHERE ordernumber IS NOT NULL;
+        
+        - SELECT c.customername, c.phone, e.employeenumber, e.email
+          FROM customers AS c
+          RIGHT JOIN employees AS e ON e.employeenumber = c.salesrepemployeenumber
+          ORDER BY employeenumber;
+        
+        - SELECT CONCAT(m.lastname, ', ', m.firstname) AS manager, CONCAT(e.lastname, ', ', e.firstname) AS employee
+          FROM employees AS e
+          INNER JOIN employees AS m ON m.employeenumber = e.reportsto
+          ORDER BY manager;
+
+        - SELECT c.customername, o.ordernumber
+          FROM customers AS c
+          LEFT JOIN orders AS o ON c.customernumber = c.customernumber
+          UNION
+          SELECT c.customername, o.ordernumber
+          FROM customers AS c
+          RIGHT JOIN orders AS o ON c.customernumber = c.customernumber
