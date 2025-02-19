@@ -88,4 +88,13 @@ type User1 = {
     isActive: boolean;
     salary: number;
 }
+let myUser: User1 = {
+    _id: "12wqeq3213",
+    name: "Vasanth",
+    email: "v@gmail.com",
+    isActive: true,
+    salary: 10000,
+}
+myUser._id = 123213;
+
 export { };
