@@ -247,7 +247,145 @@
     - Subquery:
         - It is a SELECT query that is enclosed inside another query
         - Inner SELECT query is usually used to determine the results of outer SELECT query
-        - 
+        - Types of Sub queries:
+            - Subquery with SELECT statement:
+                - syntax => SELECT <col_name> FROM <table_name>
+                  WHERE <col_name> OPERATOR (SELECT <col_name> FROM <table_name> WHERE <condition>)
+            - subquery with UPDATE statement:
+                - syntax => INSERT INTO <table_name>
+                  SELECT <col_name> FROM <table_name> WHERE <col_name> OPERATOR (INNER QUERY)
+            - subquery with DELETE statement:
+                - subquery can be used in conjuction with update statement
+                - Either single or multiple columns in a table can be updated
+                - syntax => UPDATE <table_name> SET <col_name> = <new_value>
+                  WHERE OPERATOR (SUB_QUERY)
+            - subquery with INSERT statement:
+                - subquery can be used in conjuction with DELETE statement
+                - syntax => DELETE FROM <table_name>
+                  WHERE OPERATOR VALUE (INNER_QUERY);
+    - Triggers:
+        - User defined SQL command that is invoked automatically inresponse to an INSERT, UPDATE or DELETE
+        - syntax => CREATE TRIGGER <trigger_name> <trigger_time> <trigger_event> ON
+          <table_name> FOR EACH ROW
+          BEGIN
+          ...
+          END;
+        - <trigger_time> => BEFORE, AFTER
+        - <trigger_event> => INSERT, UPDATE, DELETE
+
+    - Delimiter(//):
+        - Marker for end of each command
+
+    - Stored Procedure:
+        - When we need to call the same operation multiple time
+        - We can create a stored procedure and use them
+
+    - VIEWS:
+        - They are virtual tables and they don't store data
+        - created by joining one or more tables
+
+    - WINDOWS FUNCTIONS:
+        - Incorporated in SQL on 8.0 version
+
+    - PostreSQL:
+        - Open source object - realtional DBMS
+        - Allows to store, process & retrive data safely
+        - \l => To list all DB
+        - \c => To go into a DB
+        - Features:
+            - Free to download
+            - Supports various OS
+            - Highly secure and reliable
+            - Compatible with several data types
+            - Supports Multiversion Currency Control (MVCC)
+        - SELECT VERISON() => To get the version of pgSQL installed
+
+    - SQL with Python:
+        - This is used to connnect with SQL using Python
+        - import mysql.connector
+          from mysql.connector import Error
+          import pandas as pd
+
+        - def create_server_connection(host_name, user_name, user_pwd):
+            - connection = None
+            - try:
+                - connection = mysql.connector.connect(
+                  host = host_name,
+                  user = user_name,
+                  passwd = user_pwd)
+                - print("MySQL Database connection successful")
+            - except Error as err:
+                - print(f"Error:'{err}'")
+            - return connection
+
+        - pw = <mysql_user_passwd>
+        - db = <mysql_db_name>
+        - connection = create_server_connection("localhost", "root", pw)
+
+        - def create_database(connection, query):
+            - cursor = connection.cursor()
+            - cursor = used to connect or execute statements with SQL DB
+            - try:
+                - cursor.execute(query)
+                - print("Database created successfully")
+            - except Error as err:
+                - print(f"Error:'{err}'")
+        - create_database_query = "Create database mysql_python"
+        - create_database(connection, create_database_query)
+
+        - def create_db_connection(host_name, user_name, user_pwd, db_name):
+            - connection = None
+            - try:
+                - connection = mysql.connector.connect(
+                  host = host_name,
+                  user = user_name,
+                  passwd = user_pwd,
+                  database = db_name)
+                - print("MySQL DB connection successfull")
+            - except Error as err:
+                - print(f"Error:'{err}'")
+            - return connection
+
+        - def execute_query(connection, query):
+            - cursor = connection.cursor()
+            - try:
+                - cursor.execute(query)
+                - connection.commit()
+                - print("Query was successfully")
+            - except Error as err:
+                - print(f"Error:'{err}'")
+
+        # - """ = We can create multiline string in Python
+        - create_orders_table = """CREATE TABLE orders(
+          order_id int primary key,
+          customer_name varchar(50) not null,
+          product_name varchar(30) not null,
+          date_ordered date,
+          quantity int
+          unit_price float,
+          phone_number varchar(20));"""
+        - conection = create_db_connection("localhost", "root", pw, db)
+        - execute_query(connection, create_orders_table)
+
+        - def read_query(connection, query):
+            - cursor = connection.cursor()
+            - results = None
+            - try:
+                - cursor.execute(query)
+                - results = cursor.fetchall()
+                - retun result
+            - except Error as err:
+                - print(f"Error:'{err}'")
+
+        - from_db = []
+        - for result in results:
+            - result = list(result)
+            - from_db.append(result)
+        - columns = ["order_id", "customer_name", "product_name", "date_ordered", "quantity", "unit_price", "phone_number"]
+        - df = pd.DataFrame(from_db, columns = columns)
+        - display(df)
+
+        - execute_query(connetion, <update/delete_query>)
 
     - Hints:
         - SHOW DATABASES;
@@ -300,7 +438,7 @@
         - CREATE table <table_name> (
           product_id int primary key,
           cost_price float);
-        - SELECT c.product_id, SUM((s.sell_price - c.cost_price) * s.quantity) AS profit 
+        - SELECT c.product_id, SUM((s.sell_price - c.cost_price) * s.quantity) AS profit
           FORM sales AS s
           INNER JOIN cost AS c
           WHERE s.product_id = c.product_id
@@ -342,17 +480,17 @@
           INNER JOIN orderdetails AS od ON o.ordernumber = od.ordernumber
           INNER JOIN products AS p on p.productcode = od.productcode
           GROUP BY ordernumber;
-        
+
         - SELECT c.customername, c.customernumber, ordernumber, status
           FROM customer AS c
           LEFT JOIN orders AS o ON o.customernumber = c.customernumber
           WHERE ordernumber IS NOT NULL;
-        
+
         - SELECT c.customername, c.phone, e.employeenumber, e.email
           FROM customers AS c
           RIGHT JOIN employees AS e ON e.employeenumber = c.salesrepemployeenumber
           ORDER BY employeenumber;
-        
+
         - SELECT CONCAT(m.lastname, ', ', m.firstname) AS manager, CONCAT(e.lastname, ', ', e.firstname) AS employee
           FROM employees AS e
           INNER JOIN employees AS m ON m.employeenumber = e.reportsto
@@ -365,3 +503,155 @@
           SELECT c.customername, o.ordernumber
           FROM customers AS c
           RIGHT JOIN orders AS o ON c.customernumber = c.customernumber
+
+        - SELECT emp_name, dpt, salary FROM employees
+          WHERE salary < (SELECT AVG(salary) FROM employees);
+
+        - INSERT INTO orders
+          SELECT product_id, p_name, sell_price FROM products
+          WHERE product_id IN (SELECT product_id FROM products WHERE sell_price > 1000);
+
+        - UPDATE employees SET salary = SALARY * 0.35
+          WHERE age IN (SELECT age FROM employees_b WHERE age >= 27);
+
+        - DELETE FROM employees
+          WHERE age IN (SELECT age FROM employees_b WHERE age <= 32);
+
+        - CREATE TRIGGER age_verify
+          BEFORE INSERT ON customers
+          FOR EACH ROW
+          IF new.age < 0 THEN SET new.age = 0;
+          END IF;
+
+        - CREATE TABLE customers1 (
+          int id auto_increment primary key,
+          name varchar(50) not null,
+          email varchar(50) not null,
+          dob date);
+
+        - CREATE TABLE message (
+          id int auto_increment,
+          messageId int,
+          message varchar(100) not null,
+          primary key(id, mesageId));
+
+        - CREATE TRIGGER check_null_dob
+          AFTER INSERT ON customer1
+          FOR EACH ROW
+          BEGIN
+          IF new.dob IS NULL THEN
+          INSERT INTO message(messageId, message)
+          VALUES (new.id, CONCAT('Hi', new.name, 'Update DOB'));
+          END IF;
+          END;
+
+        - CREATE TABLE employees (
+          emp_id int primary key,
+          emp_name varchar(25),
+          age int,
+          salary float);
+
+        - CREATE TRIGGER update_trigger
+          BEFORE UPDATE ON employees
+          FOR EACH ROW
+          BEGIN
+          IF new.salary = 10000 THEN
+          SET new.salary = 85000;
+          ELIF new.salary < 10000 THEN
+          SET new.salary = 72000;
+          END IF;
+          END;
+
+        - CREATE TABLE salary(
+          eid int primary key,
+          validfrom date not null,
+          amount float not null);
+
+        - CREATE TABLE del_salary(
+          id int primary key auto_increment,
+          eid int,
+          validfrom date not null,
+          amount float not null,
+          deleted_at timestamp default now());
+
+        - CREATE TRIGGER salary_delete
+          BEFORE DELETE ON salary
+          FOR EACH ROW
+          BEGIN
+          INSERT INTO del_salary (eid, validfrom, amount)
+          VALUES (old.eid, old,validfrom, old.amount)
+          END;
+
+        - delimiter &&
+          DROP PROCEDURE top_players() IF EXISTS;
+          CREATE PROCEDURE top_players()
+          BEGIN
+          SELECT name, country, goals FROM players
+          WHERE goals > 6;
+          END &&
+          delimiter ;
+
+          CALL top_players();
+
+        - Getting inputs in functions
+        - delimiter //
+          CREATE PROCEDURE sp_sortSalary(IN var INT)
+          BEGIN
+          SELECT name, age, salary FROM emp_details
+          ORDER BY salary desc
+          LIMIT var;
+          END; //
+          delimiter ;
+
+          CALL sp_sortSalary(5);
+
+        - delimiter //
+          CREATE PROCEDURE update_salary(IN temp_name VARCHAR(20),IN new_salary FLOAT)
+          BEGIN
+          UPDATE emp_details SET salary = new_salary WHERE name = temp_name;
+          END; //
+          delimiter ;
+
+          CALL update_salary('Jimmy', 60000);
+
+        - Outputs on SQL Function
+        - delimiter //
+          CREATE PROCEDURE sp_countEmployees(OUT total_emps int)
+          BEGIN
+          SELECT COUNT(*) INTO total_emps FROM emp_details
+          WHERE sex = 'F';
+          END; //
+          delimiter ;
+
+          CALL sp_countEmployees(@F_emp);
+          SELECT @F_emp AS fem_emps;
+
+        - TRIGGERS
+        - CREATE TABLE student(
+          id int primary key,
+          st_roll int,
+          age int,
+          name varchar(50),
+          mark int);
+        - delimiter //
+          CREATE TRIGGER verify_marks
+          BEFORE INSERT ON student
+          FOR EACH ROW
+          IF new.mark < 0 THEN SET new.mark = 50;
+          END IF; //
+        - DROP TRIGGER verify_marks;
+
+        - VIEW
+        - CREATE VIEW cust_details AS
+          SELECT customerName, phone, city FROM customers;
+          SELECT * FROM cust_details;
+
+        - VIEW using JOIN
+        - CREATE VIEW product_description AS
+          SELECT productName, quantityinstock, msrp, textDescription
+          FROM products AS p
+          INNER JOIN productlines AS pl ON pl.productline = p.productline;
+
+        - RENAME TABLE product_description TO vehicle_description;
+        - SHOW FULL TABLES WHERE table_type = 'VIEW'
+        - DROP VIEW vehicle_description
