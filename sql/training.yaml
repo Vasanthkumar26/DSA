@@ -287,19 +287,6 @@
     - WINDOWS FUNCTIONS:
         - Incorporated in SQL on 8.0 version
 
-    - PostreSQL:
-        - Open source object - realtional DBMS
-        - Allows to store, process & retrive data safely
-        - \l => To list all DB
-        - \c => To go into a DB
-        - Features:
-            - Free to download
-            - Supports various OS
-            - Highly secure and reliable
-            - Compatible with several data types
-            - Supports Multiversion Currency Control (MVCC)
-        - SELECT VERISON() => To get the version of pgSQL installed
-
     - SQL with Python:
         - This is used to connnect with SQL using Python
         - import mysql.connector

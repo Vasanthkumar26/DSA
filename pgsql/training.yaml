@@ -1,0 +1,12 @@
+- PostgreSQL:
+    - Open source object - realtional DBMS
+    - Allows to store, process & retrive data safely
+    - \l => To list all DB
+    - \c => To go into a DB
+    - Features:
+        - Free to download
+        - Supports various OS
+        - Highly secure and reliable
+        - Compatible with several data types
+        - Supports Multiversion Currency Control (MVCC)
+    - SELECT VERISON() => To get the version of pgSQL installed

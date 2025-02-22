@@ -1,0 +1,67 @@
+- Diff b/w WHERE and HAVING:
+    - WHERE:
+        - Used to filter the records based on sp. conditions
+        - They can't have aggregate functions
+        - It's implemented on rows
+    - HAVING:
+        - Used to filter records from group based on sp. conditions
+        - They can operate on aggregate functions
+        - It's implemented on columns
+- Diff b/w DROP and TRUNCATE:
+    - DROP:
+        - Removes table definition and its contents
+        - View of the table does not exist
+        - Integrity constraints will be removed
+    - TRUNCATE:
+        - Delete all the rows from the table
+        - View of the table exists
+        - Integrity constraints will not be removed
+- Find lowest salary of employees in each dpt:
+    - SELECT dept, MIN(salary) AS lowest_salary FROM employees
+      GROUP BY dept
+- Which query will help to fetch unique values from a table:
+    - DISTINCT()
+    - SELECT DISTINCT <col_name> FROM <table_name>
+- How to print length of dpt:
+    - SELECT DISTINCT(<col_name>), LENGTH(<col_name>) FROM <table_name>
+- Use of DATEDIFF in SQL:
+    - Returns number of days between two date, datetime or timestamp values
+    - SELECT DATEDIFF(<end_date>, <start_date>);
+    - SELECT DATEDIFF('2025-04-01', '2025-03-01');
+    - SELECT DATEDIFF(NOW(), '2024-03-01');
+- Write SQL query to display the dpt with more than 2 emp:
+    - SELECT dept, COUNT(emp_id) FROM employees
+      GROUP BY dept
+      HAVING COUNT(emp_id) > 2;
+- Display details of emp for all dpt except marketing:
+    - SELECT * FROM employees
+      WHERE dept != 'Marketing';
+    - SELECT * FROM employees
+      WHERE dept <> 'Marketing';
+- Query to Print details of emp joins before April 2010 & after May 2005:
+    - SELECT * FROM employees
+      WHERE doj BETWEEN '2005-05-31' AND '2010-03-31';
+    - SELECT * FROM employees
+      WHERE doj > '2005-05-31'
+      AND doj < '2010-03-31'
+- Find 3rd highest salaried emp:
+    - SELECT * FROM (SELECT * FROM employees
+      ORDER BY salary DESC LIMIT 3) AS temp
+      ORDER BY salary LIMIT 1;
+- Print all alternate records in a table:
+    - cte => Common table expression
+    - WITH cte AS (SELECT *, ROWNUMBER() OVER (ORDER BY emp_id) as rn
+      FROM employees)
+      SELECT * FROM cte WHERE rn % 2 = 1;
+- Print emp with even id:
+    - SELECT * FROM employees WHERE id % 2 = 0;
+- Fetch all duplicate rows in a table:
+    - SELECT e_id, name, age, COUNT(*) AS dup_count FROM employees
+      GROUP BY e_id, name, age
+      HAVING COUNT(e_id) > 1 AND COUNT(name) > 1 AND COUNT(age) > 1;
+- Fetch employees with exactly 2 A in their name:
+    - SELECT * FROM employees
+      WHERE LENGTH(emp_name) - LENGTH(REPLACE(UPPER(emp_name), 'A', "")) = 2;
+- In a String, How will you extract 4 characters from second position of string:
+    - SELECT SUBSTR(<string>,2,4);
+    - SELECT SUBSTRING(<string>,2,4);
