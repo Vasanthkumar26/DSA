@@ -137,4 +137,33 @@ Testing:
       - describe.concurrent("suite name", () => {})
       - Cons:Tests that perform clashing (global) state manipulations may interfere with each other.
   - Dealing with side effects [Spies & Mocks]:
-      -
+      - in scripts test if we give
+        - "test":"vitest --run" => this will run only once
+        - "test":"vitest" => this will run the test in watch mode
+      - making changes to the files is an example of side effect
+      - There are two steps:
+          - spies:
+              - spies are "wrappers" around functions
+              - empty replacements for functions that allows you to track it
+              - tells how a function is called
+              - We want to use spies where we don't want to know what the function does, we just want to know whether it was executed
+              - vi.fn();
+              - we can also pass a function to fn();
+              - This is used to create empty function
+              - Keeps tack of funciton exection
+              - expect(logger).toBeCalled();
+              - toBeCalledTimes() => To test how many times the function was called
+              - toBeCalledWith() => To test the args
+          - mocks:
+              - Replacement for an API thay may provide some test specific behavior instead
+              - vi.mock(<name/path_of_model>);
+              - mock with find the module and replace the functions with empty spy functions
+              - vi.mock() will automatically intialize
+              - whereas we need to call jest.mock() in the first line
+              - mock will be available only for the tests in that particular file
+              - We can also pass function to mock to create our own custom logic
+              - vi.mock("path", () => {
+                return {
+                default:{
+                join:(...args) => {return args[args.length - 1];},},};});
+              - We can add __mocks__ folder to create global mocks

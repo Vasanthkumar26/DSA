@@ -6,12 +6,15 @@
     - S in SOLID - Single Responsibility Principle (SRP)
     - Every software component should have one and only one responsibility
     - component can be a class, a method or a module
+    - Smaller and well organized code than monolithic ones
+    - Testing:
+        - A class with one responsibility will have far fewer test cases
     - Cohesion:
         - It is the degree to which the various parts of a software components are related
         - Aim for higher cohesion
     - Coupling:
         - It is defined as the level of inter dependency between various software components
-        - Aim for loose coupling
+        - Aim for loose coupling [fewer dependencies]
 
 - Open Closed Principle (OCP):
     - O in SOLID - Open Closed Principle
@@ -32,3 +35,14 @@
 - Liskov Substituion Principle (LSV):
     - L in SOLID - Liskov Substituion Principle (LSV)
     - Objects should be replaceable with their subtypes without affecting the correctness of the program
+    - If class A is a subtype of class B, We should be able to replace B with A without disrupting the behavior of program
+
+- Interface Segregation:
+    - I in SOLID - Interface Segregation
+    - Larger interface should be split into smaller ones
+    -
+
+- Dependency Inversion:
+    - D in SOLID - Dependency Inversion
+    - It refers to decoupling of software modules
+    - In this way, instead of high level modules depending on low level modules, both will be depend on abstractions

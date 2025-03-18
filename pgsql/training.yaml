@@ -3,6 +3,7 @@
     - Allows to store, process & retrive data safely
     - \l => To list all DB
     - \c => To go into a DB
+    - \c <db_name>
     - Features:
         - Free to download
         - Supports various OS
@@ -10,3 +11,69 @@
         - Compatible with several data types
         - Supports Multiversion Currency Control (MVCC)
     - SELECT VERISON() => To get the version of pgSQL installed
+    - \d => To describe the table
+    - \d <table_name>
+    - SELECT * FROM <table_name> WHERE rating IN (8.9,9.0);
+    - SELECT * FROM <table_name> WHERE <col_name> IS NULL;
+
+    - ALTER TABLE <table_name> RENAME COLUMN <old_name> TO <new_name>;
+    - ALTER TABLE movies RENAME COLUMN movie_genra TO movie_genre;
+
+    - SELECT * FROM <table_name> ORDER BY <col_name> LIMIT 4 OFFSET 3;
+    - This will limit the records to 4 along with an OFFSET of 3.
+
+    - SELECT * FROM <table_name> ORDER BY <col_name> FETCH FIRST 3 ROW ONLY;
+    - This will fetch only the first 3 rows only
+    - SELECT * FROM <table_name> ORDER BY <col_name> OFFSET 3 ROWS FETCH FIRST 4 ROW ONLY;
+
+    - SELECT * FROM <table_name> WHERE <col_name> LIKE 'V%';
+    - SELECT * FROM <table_name> WHERE <col_name> LIKE '%d';
+    - SELECT * FROM <table_name> WHERE <col_name> LIKE '%ish%';
+    - SELECT * FROM <table_name> WHERE <col_name> LIKE '_u%';
+    - MAX(), MIN(), SUM(), AVG(), COUNT(), DISTINCT(), ABS() => get absolute value, GREATEST(), LEAST(),
+      MOD(), POWER(), SQRT(), SIN(), COS(), TAN(), CEIL(), FLOOR()
+
+    - CHAR_LENGTH("test"), CONCAT(<string1>, <string2>, ....), LEFT(<string>,<char_length>), RIGHT(<string>,<char_length>)
+      REPEAT(<string>, <no_of_times>), REVERSE(<string>)
+
+    - SELECT country, AVG(salary) AS avg_salary FROM <table_name>
+      GROUP BY country ORDER BY avg_salary DESC;
+
+    - We can give comment by giving --, /* */ in pgSQL
+
+    - SELECT department, country, salary,
+      CASE
+      WHEN salary > 45000 AND salary < 55000
+      THEN 'Low Salary'
+      WHEN salary > 55000 AND salary < 80000
+      THEN 'Medium Salary'
+      WHEN salary > 80000 THEN 'High Salary'
+      END AS salary_range
+      FROM <table_name>
+      ORDER BY salaray DESC;
+
+    - SELECT emp_name, dept, country, salary
+      FROM <table_name> WHERE salary > (SELECT AVG(salary) FROM <table_name>);
+
+    - SELECT GREATEST(2,3,56,90,95,65,78) // 95
+    - SELECT LEAST(2,3,56,90,95,65,78) // 2
+    - SELECT MOD(50,4) // 2
+    - SELECT POWER(5,3) // 125
+    - SELECT SQRT(100) // 10
+    - SELECT SIN(90)  // 1
+    - SELECT CEIL(6.45) // 7
+    - SELECT FLOOR(6.45) // 6
+
+    - CREATE OR REPLACE FUNCTION <function_name>()
+      RETURNS integer
+      AS $<alias_name>$
+      DECLARE
+      <alias_name> integer;
+      BEGIN
+      SELECT COUNT(email) INTO <alias_name>
+      FROM <table_name>;
+      RETURN <alias_name>;
+      END;
+      $<alias_name>$
+      LANGUAGE plpgsql;
+    - SELECT <function_name>();

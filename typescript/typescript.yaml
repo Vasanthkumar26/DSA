@@ -1,22 +1,116 @@
+- TS is an OS programming language developed by Microsoft
 - TS is not about reinventing JS
 - TS is all about Type Safety
 - TS is just for static checking [Analyze the code as we type]
 - TS is a development tool, but the project still runs on JS
 - TS is a super set of JS
+- TS transpiles [Transform + Compile] to JS
 - tsc -v => to check version of TS
+- It is object oriented with classes, interfaces
+- Type system increases code quality, readability
+- More error can be caught at compile time rather than run time
 - basic types in TS:
     - all the types are lowercase
-      - Number
-      - String
-      - Boolean
-      - Null
-      - Undefined
-      - Void
-      - Object
-      - Array
-      - Tuples
-      - Any
-      - Never
-      - unkown
+    - Number -> It is stored as floating numbers. They can be decimal, hexadecimal, Octal
+    - String -> Stores text data. They can be surrounded by single/double quotation marks
+    - Boolean -> true/false value
+    - Null
+    - Undefined
+    - Void -> void where there is no datatype, it is like opposite to any. Generally used in function where nothing is returned
+    - Object -> Non primitive type.
+    - Array:
+        - This is used to store mutiple values of different datatypes
+        - We can declare in Square brackets, Generic Array
+        - Using a generic type Array<element_type>
+        - Elements can be accessed using index of element
+        - let values:(string | number)[] = ["red", 1, "blue", 26];
+        - let values:Array<string | number> = ["red", 1, "blue", 26];
+    - Any -> This is used to define variable which we don't know while writing the application
+    - Never
+    - unkown
+    - Tuple -> Allows to express an array with fixed number of elements, where types need not be the same
+    - Enum -> It's an addition to standard set of datatypes. Gives more user friendly names to set of numeric values
+    - Never -> It represents the type of variable that never occurs. It is used in function that always throws an exception or one that never returns value
 - syntax:
-    - let variableName:- type = value
+    - let variableName:type = value
+    - let isChecked:boolean = false;
+    - let one:number = 55; // 55 (number)
+    - let two:number = 0x37cf; // 14287 (hexadecimal)
+    - let three:number = 0o377; // 255 (octal)
+    - let four:number = 0b111001; // 57 (binary)
+    - let player:string = "Vasanth";
+    - let player1:string = 'Kumar';
+    - let playerDetail:string = `Player fullname:${player} ${player1}`;
+    - let notSure:any = 55;
+      notSure = "Can be string";
+      notSure = true;
+    - let func(x:<data_type>):void{} // this function doesn't return anything
+    - let colors:string[] = ["blue", 'black', "green"];
+    - let colors1:Array<string> = ["blue", 'black', "green"];
+    - let employee:[number,string] = [26, "Vasanth"]; // Tuple
+    - Enum Color { Red, Green = 4, Blue}
+    - function foo():never {
+      // throw 10;
+      while(true){}}
+    - let o1:object = {prop:0};
+    - let o2:object = null;
+- Variable Declarations:
+    - var, let & const
+    - var within function will have function level scope instead of block level scope
+    - let variables will have block level scope when declared within block inside function
+    - Advantages of using let:
+        - Block scoped
+        - cannot be read or written before they declared
+        - cannot be redeclared
+        - minimize possibilities of runtime errors
+    - const will have same scope as like let
+    - it allows object sub properties to be changed but not the object structure
+- Function & it's parameters:
+    - Function is of two types
+    - Named functions:
+        - In this we will declare and call a function by it's name
+        - This also includes parameteres and return type
+    - Anonymous functions:
+        - This is defined as expression
+        - This expression is stored in a variable
+        - Funcitons will not have any name, Those functions are invoked by variable name
+        - Generally these are used to pass as a parameter to another funtions
+        - Arrow function is an example of anonymous function
+        - Those are called as lambda function in other languages
+    - Function overloading [FO]:
+        - We can have multiple functions with same name but different parameter type & return type
+        - However the number of parameters should be same
+        - FO is not allowed with different number of parameters and types with same name
+    - Optional Parameters:
+        - The parameters that may / may not receive a value can be appended with "?" to mark optional
+        - All Optional parameters must follow required params and should be at the end
+    - Default Parameters:
+        - If value to an argument is not provided, if will initialize the parameter with default value
+        - It has same behaviour as optional parameters
+- Rest parameters:
+    - when the no. of parameters that a function will receive is not know or can vary we can use this
+    - We can pass zero or more arguments to a rest parameter
+    - Compiler will create array of arguments with the rest parameter name which was provided
+    - It should come at last in function definition
+- Spread operator:
+    - It is used to spread elements or iterable collectionas an individual funtion parameter
+    - It is denoted by ellipsis which is same as rest operator
+    - If a ellipsis is on left side of assignment operator then it is rest operator
+    - if a ellipsis is on right side of assignment operator then it is spread operator
+- Type assertion:
+    - It allows to set the type of value and tell the compiler not to infer it
+    - It is merely a way to let TS compiler know the type of variable
+- Destructuring:
+    - Breaking up of a structure
+    - Object destructuring / Array destructuring
+    - Destructuring is useful to access the values in single line
+    - It makes code more readable
+    - const rect = { x:10, y:20 };
+      const { x, y } = rect;
+      console.log(x, y); // 10, 20
+    - const arr = [10,20,30,40];
+      const [x,y] = arr;
+      console.log(x,y); // 10,20
+    - const arr = [1,2,3,4];
+      const [a,b,...rem] = arr;
+      console.log(a, b, rem) // 1,2,[3,4]

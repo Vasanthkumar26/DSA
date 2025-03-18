@@ -162,3 +162,22 @@ if get_fruit_name in fruits:
     print(f"{get_fruit_name} was found")
 else:
     print(f"{get_fruit_name} was not found")
+
+# Variables
+# variable is the name given to a value
+# x = 100
+# type(x) => int
+# x = 3.14
+# type(x) => float
+# x = "vasanth"
+# type(x) => str
+# x = [1,2,3,4]
+# type(x) => list
+# x = (1,2,3)
+# type(x) => tuple(immutable)
+
+# Files (file pointers)
+# When we need to perform various operation on a file we can assign the file to a variable and use it
+# x = open(<file_name>.<file_type>, <mode_of_opening>)
+# x = open('test.ipynb','r')
+# type(x) => _io.TextIOWrapper

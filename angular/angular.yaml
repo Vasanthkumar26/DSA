@@ -144,3 +144,8 @@
         - imports[]:
             - This will enable using standalone components in Modules
             - We can include other modules as well [e.g.:BrowserModule]
+
+- Debugging:
+    - components => gives overview of components
+    - profiler => to improve performance
+    - injector tree => how the dependency injecy in angular application works
