@@ -1,4 +1,7 @@
 - Java:
+    - Write once, run anywhere
+    - Platform independent
+    - It can run on any OS over JVM
     - Simple programming language:
         - syntax is clear and concise
         - It has removed concepts like explicit pointers, operator overloading, etc.,
@@ -195,3 +198,37 @@
         - No need to implement, we can analyze them
         - A function with higher order of growth is less effecient [n -> inf g(n)/f(n) = 0 / n -> inf f(n)/g(n) = inf]
         - A funciton with lower order of growth is more effecient
+
+- goto & const keywords are obselete
+- int value2;
+  System.out.printf(value2); // This will throw an error of initialization
+- int value1 = 1; // This is initialization
+  int value3; // This is declaration
+  value3 = 2; // This is assignment
+- Implicit Casting [Widening]
+  byte -> short -> int -> long -> float -> double
+  short a = 10;
+  int b = a;
+  This will convert the value automatically from short to int
+  If we try to assign short value to byte which is less in size, it will break
+- Explicit Casting [Narrowing]
+  double -> float -> long -> int -> short -> byte
+  short a = 200;
+  byte b = (byte) a;
+  We have to be cautious about explicit type casting
+  If the value is more than the limit, it will give some random value
+- When to use what
+  Double - Any general scenario, where floating point number is required
+  Double - Any operation where output can be a floating point number
+  Double - Any high precision is required
+  Float - If there is requirement
+  Int - Any general scenario, when the output will be interger
+  Long - Occassions where int data type is not large enough
+
+- Methods in Java:
+    - Any program in Java will have a main method
+    - Methods Overloading:
+        - Methods having same name but having different parameters
+        - Position of parameters also play a vital role in method overloading
+        - A method can be called any number of times in a program
+        - It is multiple method with same name & different arguments

@@ -1,0 +1,10 @@
+- Install Node
+- Install Sublime / VS Code & Git Bash terminal
+- Create SSH key:
+    - For security reasons
+    - mkdir .ssh
+    - cd .ssh
+    - ssh-keygen.exe
+    - cat id_rsa.pub
+- Install Heroku:
+    - Web hosting cmpy
