@@ -1,1 +1,189 @@
 
+- Does C# support Multiple Inheritance? How to implement it?:
+    - Multiple Inheritance:- A sub-class can inherit from two or more super-classes:
+      - C++, Python allows Multiple Inheritance
+      # Parent class 1
+      - class Flyer:
+          def fly(self):
+            print("Can fly")
+      # Parent class 2
+      - class Swimmer:
+          def swim(self):
+            print("Can swim")
+      # Child class inheriting from both Flyer and Swimmer
+      - class Duck(Flyer, Swimmer):
+          def quack(self):
+            print("Duck quacks")
+    - Single Inheritance:- A sub-class can inherit only one super-class:
+      # Parent class
+      - class Animal:
+        def speak(self):
+          print("Animal speaks")
+      # Child class inheriting from Animal
+      - class Dog(Animal):
+          def bark(self):
+            print("Dog barks")
+      # Parent class
+      - class Animal :
+        {
+          public void Speak() {
+            Console.WriteLine("Animal speaks"); 
+          }
+        }
+      # Child class inheriting from Animal
+      - class Dog : Animal
+        {
+          public void Bark() {
+            Console.WriteLine("Dog barks");
+          }
+        }
+    - No, C# does not support multiple inheritance directly. 
+    - C# support inheritance through multiple interfaces [alternate way to achieve multiple inheritance]
+    - interface IA { void A(); }
+    - interface IB { void B(); }
+    - class C:IA, IB
+      {
+        public void A() { /*...*/ }
+        public void B() { /*...*/ }
+      }
+    - No multiple class inheritance — to avoid ambiguity and complexity.
+    - Multiple interface inheritance — gives flexibility without confusion.
+
+- What is abstraction and How to implement it in real applications?: 
+    - Abstraction is a fundamental concept in object-oriented programming (OOP)
+    - Shows only required details and hides background information.
+    - Focuses on hiding the complex implementation details and showing only the essential features of an object.
+    - It allows developers to create a simplified model of a system, making it easier to understand and work with.
+    - In C#, abstraction can be achieved using abstract classes and interfaces.
+    # Abstract class
+    - abstract class Animal
+      {
+          public abstract void MakeSound();  // Abstract method (no body)
+
+          public void Sleep()                // Concrete method
+          {
+              Console.WriteLine("Sleeping...");
+          }
+      }
+    # Derived class must implement abstract methods
+    - class Dog : Animal
+      {
+          public override void MakeSound()
+          {
+              Console.WriteLine("Dog barks");
+          }
+      }
+    # Usage
+    - class Program
+      {
+          static void Main(string[] args)
+          {
+              Dog dog = new Dog();
+              dog.MakeSound();  // Output:- Dog barks
+              dog.Sleep();      // Output:- Sleeping...
+          }
+      }
+
+- What is polymorphism and what are it types?:
+  - Polymorphism is a core concept in object-oriented programming (OOP)
+  - Ability of variable, function or object to take on multiple forms.
+  - It allows objects of different classes to be treated as objects of a common super class.
+  - The two types of polymorphism in C# are:
+    - Compile-time polymorphism (also known as static polymorphism)
+    - Run-time polymorphism (also known as dynamic polymorphism)
+  - Compile-time polymorphism is achieved through method overloading and operator overloading.
+  - Run-time polymorphism is achieved through method overriding.
+  # Method Overloading
+  - class Polymorphism 
+    {
+        public int Add(int a, int b) { return a + b; }
+        public double Add(double a, double b) { return a + b; }
+        public string Add(string a, string b) { return a + b; }
+    }
+  # Method Overriding
+  - class Animal
+    {
+        public virtual void Speak() { Console.WriteLine("Animal speaks"); }
+    }
+  # Derived class overriding the base class method
+  - class Dog : Animal
+    {
+        public override void Speak() { Console.WriteLine("Dog barks"); }
+    }
+
+- What is boxing and unboxing?:
+  - Boxing is the process of converting a value type to a reference type.
+  - Unboxing is the reverse process of converting a reference type back to a value type.
+  # Boxing
+  - int num = 42; 
+  - object obj = num; // Boxing
+  # Unboxing
+  - int unboxedNum = (int)obj; // Unboxing
+  - they allow value types to be used in contexts that require reference types, such as collections and interfaces. 
+  # real time example
+  - We will be using this while pushing and extracting data from a collection.
+  - int num = 100;
+    ArrayList list = new ArrayList();
+    list.Add(num); // Boxing
+    # We cannot directly add an int to an ArrayList.
+    # It will be stored as an object in the ArrayList.
+  - int unboxedNum = (int)list[0]; // Unboxing
+    # We need to cast it back to int when retrieving it from the ArrayList.
+  - Boxing and unboxing can have performance implications, as they involve additional memory allocation and type conversion.
+
+- When to use abstract class and when to use interface?:
+  - Abstract Class
+    - When we are sure about some methods are defined & must be implemented in derived classes.
+    - Use when you want to provide a common base class with some default behavior.
+    - Can have fields, constructors, and methods with implementations.
+    - Can contain access modifiers (public, protected, private).
+    - Can have non-abstract methods (with implementation).
+    - Can inherit from only one class (single inheritance).
+  - Interface
+    - When we know a mathod has to be there, but it can implemented in different ways.
+    - Use when you want to define a contract that multiple classes can implement.
+    - Cannot have fields or constructors.
+    - All members are public by default (no access modifiers).
+    - Cannot have any implementation (only method signatures).
+    - Can inherit from multiple interfaces (multiple inheritance). 
+
+- Difference between continue & break statement:
+  - Break statement
+    - Used to exit a loop or switch statement immediately.
+    - Terminates the loop and transfers control to the statement following the loop.
+    - Can be used in loops (for, while, do-while) and switch statements.
+    - Example:-
+      - for (int i = 0; i < 10; i++)
+        {
+            if (i == 5)
+                break; // Exit the loop when i is 5
+        }
+  - Continue statement
+    - Used to skip the current iteration of a loop and move to the next iteration.
+    - Does not terminate the loop; instead, it jumps to the next iteration.
+    - Can be used in loops (for, while, do-while).
+    - Example:-
+      - for (int i = 0; i < 10; i++)
+        {
+            if (i == 5)
+                continue; // Skip the rest of the loop when i is 5
+        }
+
+- Difference between finally & finalize:
+  - Finally
+    - A block of code that is executed after a try-catch block, regardless of whether an exception was thrown or not.
+    - Used for cleanup code, such as closing files or releasing resources.
+  - Finalize
+    - A method that is called by the garbage collector before an object is destroyed.
+    - Used to perform cleanup operations on unmanaged resources.
+    - Not guaranteed to be called immediately after an object goes out of scope.
+    - Can only be used in classes that derive from System.Object. 
+
+- What is Garbage Collection?:
+  - It allocates and realeases memory automatically on .NET framework.
+  - It is one of the resposnibilities of the Common Language Runtime (CLR).
+  - It helps prevent memory leaks and improves application performance.
+  - The GC uses a generational approach, dividing objects into three generations (Gen 0, Gen 1, Gen 2) based on their lifespan.
+  - Objects that survive multiple collections are promoted to older generations, which are collected less frequently.
+
+- 
