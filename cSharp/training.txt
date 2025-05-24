@@ -1,0 +1,999 @@
+C Sharp:
+  - OOPS language developed by Microsoft
+  - Intoduced in 2002
+  - Similar syntax to C, C++, Java
+  - Advantages:
+    - Modern and simplified syntax
+    - Automatic garbage collection
+    - Rich set of features
+    - Multi Threading
+    - Cross Language Interoperability [We can run other code in C#]
+    - Cross Platform
+  - C# Code Execution in .NET Framework [Base app can run only on Windows]
+  - C# Code -> C# Compiler -> DLL, EXE [IL Code - Intermediate Language Code] by FCL
+    -> JIT Compiler -> Machine Code
+  - C# Code Execution in .NET Core [Base app can run on any OS]
+  - C# Code -> Roslyn Compiler -> DLL, EXE [IL Code - Intermediate Language Code] by CoreFx
+    -> Core CLR RyuJIT Compiler -> Machine Code
+  - Basic syntax
+    - using system;
+      class Program {
+        static void Main() {
+          Console.WriteLine("Hello")
+        }
+      }
+    - using system -> used to include "System" namespace and providing essential classes and methods
+  - public modifier
+    - used to make a class, method or variable accessible at any part of the Program
+    - public class Calculator {
+        public int Add(int a, int b) {
+          return a + b;
+        }
+      }
+      class Program {
+        static void Main() {
+          Calculator calc = new Calculator();
+          int result = calc(1,2);
+          Console.WriteLine("Result: " + result);
+        }
+      }
+  - namespace
+    - used to organize code in logical groups
+    - by declaring our own namespace, we can encapsulate and structure our data for more maintainability
+    - namespace MyApp1 {
+        class Program {
+          static void Main() {
+            Console.WriteLine("Inside MyApp1)
+          }
+        }
+      }
+      namespace MyApp2 {
+        class Program {
+          static void Main() {
+            Console.WriteLine("inside MyApp2)
+          }
+        }
+      }
+  - variables
+    - a variable will be stored based on the datatype
+    - primitive data type like int will store in "Stack"
+    - non primitive data type like String will store in "Heap"
+  - Type casting / Type conversions
+    - To convert one data type to another
+    - If data type are not compatible with each other it will throw "InvalidCastException"
+    - There are three type of conversions
+      - Implicit conversions
+        - int i1 = 10;
+          decimal d1 = i1;
+      - Explicit conversions
+        - char c1 = '5';
+          int i2 = (int)c1;
+      - Conversions with Helper classes
+        - string s1 = "25";
+          int i3 = Convert.ToInt32(s1);
+  - Data Types
+    - These are used to specify the operations that are to be performed in a variable
+    - stored by value type / reference type each has built-in type / user defined type
+    - decimal
+      - decimal totalPrice = 99.95M;
+    - boolean
+      - bool isLoggedIn = false;
+    - integral
+      - short myShort = 42; // 16 bit
+      - int dob = 260695; // 32 bit
+    - float
+      - double piValue = 3.14159265359;
+      - float myFloat = 3.14f; // 32 bit
+      - double myDouble = 2.71828; // 64 bit
+    - nullable
+      - int? nullableValue = null;
+    - char
+      - char myChar = 'A'; // 16 bit
+    - string
+      - string myString = "Hello, World!";
+    - class
+      - user defined reference type create object
+      - class MyClass {};
+      - MyClass class1 = new MyClass();
+    - object
+      - base type for all C# types, can hold any value
+      - object myObject = 1212;
+    - Interface
+      - defines a contract that a class must adhere to by implementing its methods and properties
+      - interface IShape {
+          double calculateArea();
+        }
+    - Pointer
+      - typically used in unsafe context
+      - not commonly used due to safety concerns
+      - allow direct memory manipulation
+      - unsafe {
+          int* ptr;
+          int num = 42;
+          ptr = &num;
+          Console.WriteLine(*ptr); // Prints the value 42
+        }
+  - Safe Type Casting with IS / AS
+    - Helps to do safe type casting
+    - IS Operator
+      - Helps to do safe type casting
+      - Checks whether the type of a given object is compatible with the new object or not
+      - If compatible return true else return false
+      - Object obj1 = new Object();
+        bool bool1 = obj1 is object; // true
+        bool bool2 = obj1 is Student; // false
+    - AS Operator
+      - Helps to do safe type casting
+      - Checks whether the type of a given object is compatible with the new object or not
+      - If compatible return non-null else return null
+      - Object obj2 = new Object();
+        Object obj3 = obj2 as object; // obj2
+        Object obj4 = obj2 as Student // null
+  - Operators
+    - special symbol that tells compiler to perform specific mathematical or logical operations
+    - Arithmetic [+, -, /, *, %]
+      - int a = 10, b = 5;
+        int sum = a + b;  // Addition
+        int difference = a - b;  // Subtraction
+        int product = a * b;  // Multiplication
+        int quotient = a / b;  // Division
+        int remainder = a % b;  // Modulus
+    - Relational [<, <=, >, >=, ==]
+      - int x = 10, y = 20;
+        bool isEqual = (x == y);  // Equal to
+        bool isNotEqual = (x != y);  // Not equal to
+        bool isGreaterThan = (x > y);  // Greater than
+        bool isLessThan = (x < y);  // Less than
+    - Logical / boolean [||, &&, !]
+      - bool p = true, q = false;
+        bool andResult = p && q;  // Logical AND
+        bool orResult = p || q;  // Logical OR
+        bool notResult = !p;  // Logical NOT
+    - Bitwise [&, |, ~]
+      - int num1 = 5, num2 = 3;
+        int andResult = num1 & num2;  // Bitwise AND
+        int orResult = num1 | num2;  // Bitwise OR
+        int xorResult = num1 ^ num2;  // Bitwise XOR
+        int leftShiftResult = num1 << 2;  // Left shift
+        int rightShiftResult = num1 >> 1;  // Right shift
+    - Assignment [=, +=, *=]
+      - int x = 10;
+        x += 5;  // Equivalent to x = x + 5
+        x -= 3;  // Equivalent to x = x - 3
+    - Type information [sizeOf, IS, AS]
+    - Unary [++, --]
+      - int num = 5;
+        num++;  // Increment by 1
+        num--;  // Decrement by 1
+    - Miscellaneous [?:, =>, ?]
+      - int age = 20;
+        string message = (age >= 18) ? "Adult" : "Minor";
+      - string name = person?.Name;  // Conditional Access Operator
+      - int result = value ?? defaultValue;  // Null-Coalescing Operator
+  - Conditional Statements
+    - Helps to make decisions based on Conditiona
+    - Conditions are specified by a set of decision making statements
+    - if statement
+      - if(true) {
+			    Console.WriteLine("It's true");
+		    }
+    - if-else statement
+      - if(false) {
+          Console.WriteLine("It's true");
+        } else {
+          Console.WriteLine("It's false");
+        }
+    - if-else-if / ladder statement
+      - int percentage = 80;
+        if(percentage >= 90) {
+          Console.WriteLine("A+ grade");
+        } else if(percentage >= 70) {
+          Console.WriteLine("A grade");
+        } else {
+          Console.WriteLine("B grade");
+        }
+    - switch statement
+      - switch(day1) {
+        case "sunday":
+          Console.WriteLine("Sunday");
+          break;
+        case "monday":
+        case "tuesday":
+          Console.WriteLine("Early days of week");
+          break;
+        case "wednesday":
+          Console.WriteLine("Wednesday");
+          break;
+        case "thursday":
+        case "friday":
+          Console.WriteLine("Late days of week");
+          break;
+        case "saturday":
+          Console.WriteLine("Saturday");
+          break;
+        default:
+          Console.WriteLine("Invalid Day");
+          break;
+      }
+  - Loop Statements
+    - Used to repeat a block of statements for certain amount of time
+    - It will continue its execution until specified expression evaluates to false
+    - while Loop
+      - bool test = true;
+        while(test) {
+          Console.WriteLine(test);
+          test = false;
+        }
+    - for Loop
+      - int num = 12;
+        for(int i = 1; i <= 10; i++){
+          Console.WriteLine("{0} * {1} = {2}",num, i, num*i);
+        }
+    - do-while Loop
+      - string choice;
+        do {
+          Console.WriteLine(".NET Do While Testing");
+          Console.WriteLine("Do you want to print again (y/n)?");
+          choice = Console.ReadLine();
+        } while (choice == "y");
+        Console.WriteLine("Exit...");
+    - for-each Loop
+      - operates on collection in .NET which implement IEnumerable
+      - int[] myArray = new int[] {4,5,7,8};
+        foreach(int item in myArray) {
+          Console.WriteLine("Value : {0}", item);
+        }
+  - Jump statements
+    - break
+      - Terminates the execution of a loop or switch
+    - continue
+      - Skips the current iterations and passes to program to next iteration
+    - goto
+      - Transfer program to a labeled statement
+      - label statement must exist in scope of goto statement
+      - used to get out from a loop / a nested loop to outer loop
+      - not recommended to use, since it makes the program logic complex and difficult to understand
+      - for(int i = 1; i < 8; i++){
+          Console.WriteLine(i);
+          if(i % 2 == 0) {
+            goto printEven;
+          }
+        }
+        Console.WriteLine("Printing after for loop");
+        
+        printEven:
+        Console.WriteLine("It is even");
+    - return
+      - Terminates the execution of the method
+      - Returns control to the calling method
+    - throw
+      - throws any exception / error during the program execution
+      - Used with combination of try-catch / try-finally statements
+      - int num1 = 4, num2 = 0;
+        try {
+          if(num2 == 0)
+            throw new DivideByZeroException();	
+          else
+            Console.WriteLine(num1/num2);
+        } catch (Exception ex) {
+          Console.WriteLine(ex.Message);
+        }
+  - Array
+    - Collection of homogeneous / same type of elements
+    - stored in contiguous memory
+    - lowest memory address = first element, highest memory address = last element
+    - Array class
+      - Defined in system namespace
+      - Acts as a base class for all array in C#
+      - provides functionality for creating, manipulating, sorting & searching arrays
+      - provides useful methods like CreateInstance, Copy, IndexOf, GetValue, SetValue
+      - int[] arr = new int[5] {5,9,2,4,1};
+        Array.Sort(arr);
+        for(int i = 0; i < arr.Length; i++) {
+          Console.WriteLine("{0} ",arr[i]);
+        }
+        
+        int IndexOf4 = Array.IndexOf(arr, 4);
+        Console.WriteLine(IndexOf4);
+        
+        int IndexOf6 = Array.IndexOf(arr, 6);
+        Console.WriteLine(IndexOf6);
+        
+        int[] newArr = new int[3];
+        Array.Copy(arr, newArr, 3);
+        
+        for(int i = 0; i < newArr.GetLength(0); i++) {
+          Console.WriteLine("{0} ",newArr.GetValue(i));
+        }
+    - One dimensional
+      - int[] arr = new int[2];
+        arr[0] = 5;
+        arr[1] = 10;
+    - Multi dimensional
+      - int [,] myArray = new int[2,2];
+        myArray[0, 0] = 1;
+        myArray[0, 1] = 2;
+        myArray[1, 0] = 3;
+        myArray[1, 1] = 4;
+        for(int i = 0; i < myArray.GetLength(0); i++) {
+          Console.WriteLine("\n");
+          for(int j = 0; j < myArray.GetLength(1); j++) {
+            Console.WriteLine("{0}",myArray[i,j]);
+          }	
+        }
+    - Jagged Arrays
+      - A special type of array whose elements are arrays
+      - Elements of this can be of different dimensions and sizes
+      - Also called as "array of arrays"
+      - int[][] myArr = new int[2][];
+        myArr[0] = new int[2];
+        myArr[1] = new int[3];
+        
+        myArr[0][0] = 10;
+        myArr[0][1] = 20;
+        
+        myArr[1][0] = 5;
+        myArr[1][1] = 15;
+        myArr[1][2] = 25;
+        
+        for(int i = 0; i < myArr.GetLength(0); i++) {
+          for(int j = 0; j < myArr[i].GetLength(0); j++) {
+            Console.WriteLine("[{0},{1}] is {2}",i, j, myArr[i][j]);
+          }
+        }
+  - Strings
+    - Collection of unicode characters
+    - Ref. type i.e., stored in Heap
+    - Instance of System.String class
+    - Accepts null value
+    - string str1 = "Hello World";
+      string str2 = null;
+    - methods
+      - Clone()
+      - CompareTo()
+      - Contains()
+      - EndsWith()
+      - Equals()
+      - IndexOf()
+      - ToLower()
+      - ToUpper()
+      - Insert()
+      - LastIndexOf()
+      - Length
+      - Remove()
+      - Replace()
+      - Split()
+      - StartsWith()
+      - Substring()
+      - ToCharArray()
+      - Trim()
+    - Types
+      - Immutable
+        - instance of System.String
+        - We cannot change / update the contents of the string 
+      - Mutable
+        - instance of System.Text.StringBuilder
+        - We can modify the contents
+        - Useful when we need to perform a lot of string manipulation
+    - Verbatim String
+      - Preceded by @ character
+      - @ -> No character interpretations would be applied on a string
+      - Does not have escape sequence
+      - string VerbatimStr = @"c:\ProgramFiles\Microsoft.NET";
+        string Str = "c:\\ProgramFiles\\Microsoft.NET";
+  - OOPS
+    - primary purpose is to increase the flexibility and maintainability of the porgrams
+    - Abstraction
+      - Mechanism to provide the details about essential features without describing background details
+      - Only show the minimal / required details
+    - Encapsulation
+      - Mechanism to bind object state (fields) and behavior (methods) together into a single unit
+      - mainly achieved by creating classes
+      - class is a container / capsule that encapsulates set of fields and methods
+    - Inheritance
+      - Mechanism of acquiring the features and behaviors of a class by another class
+      - Class members which are inherited is called base class
+      - Class that inherits those members is called derived class
+      - Class A [base/parent class] -> Class B [derived class]
+    - Polymorphism
+      - Ability of an object to behave in multiple ways
+      - Static Polymorphism [Method Overloading, Operator Overloading]
+      - Dynamic Polymorphism [Method Overriding]
+  - Class
+    - User defined data structure that contains data members [fields, methods] nad member functions [methods, constructor, destructor]
+    - Reference type and acts as a template for an object
+  - Object1
+    - Representative of a class and allocates memory to its class members
+    - Real world entity
+    - public class Student {
+        public string name {get; set;}
+        public int	id {get; set;}
+        public string location {get; set;}
+        
+        public void showDetails() {
+          Console.WriteLine("Student Info");
+          Console.WriteLine("Student Name: {0}, Student Id: {1}, located at {2}",name, id, location);
+        }
+      }
+
+      public class Program {
+        public static void Main() {
+          Student std = new Student();
+          std.name = "Vasanth";
+          std.id = 26;
+          std.location = "Coimbatore";
+          std.showDetails();
+        }
+      }
+  - Access Modifiers
+    - Used to specify the accessibility of a member or a type
+    - Supports abstraction
+    - Types
+                            :             Same Assembly               |     Different Assembly
+                            : Same Class , Derived Class, Other Class | Derived Class, Other Class
+      - Private             :     Yes    ,      No      ,     No      |       No     ,      No
+      - Protected           :     Yes    ,      Yes     ,     No      |       Yes    ,      No
+      - Internal            :     Yes    ,      Yes     ,     Yes     |       No     ,      No
+      - Protected Internal  :     Yes    ,      Yes     ,     Yes     |       Yes    ,      No
+      - Public              :     Yes    ,      Yes     ,     Yes     |       Yes    ,      Yes
+    - public class Assembly1BaseClass {
+        private string privateVariable = "private";
+        protected string protectedVariable = "protected";
+        internal string internalVariable = "internal";
+        protected internal string protectedInternalVariable = "protected inernal";
+        public string publicVariable = "public";
+        
+        public void TestAccessClass() {
+          // Accessible
+          Console.WriteLine(privateVariable);
+          Console.WriteLine(protectedVariable);
+          Console.WriteLine(internalVariable);
+          Console.WriteLine(protectedInternalVariable);
+          Console.WriteLine(publicVariable);
+        }
+      }
+
+      public class Assembly1DerivedClass : Assembly1BaseClass {
+        public void TestDerivedClass() {
+          // Not Accessible
+          // Console.WriteLine(privateVariable);
+          
+          // Accessible
+          Console.WriteLine(protectedVariable);
+          Console.WriteLine(internalVariable);
+          Console.WriteLine(protectedInternalVariable);
+          Console.WriteLine(publicVariable);
+        }
+      }
+
+      public class Assembly1OtherClass {
+        public void TestAccess() {
+          Assembly1BaseClass baseObj = new Assembly1BaseClass();
+          // Not Accessible
+          // Console.WriteLine(baseObj.privateVariable);
+          // Console.WriteLine(baseObj.protectedVariable);
+          
+          // Accessible
+          Console.WriteLine(baseObj.internalVariable);
+          Console.WriteLine(baseObj.protectedInternalVariable);
+          Console.WriteLine(baseObj.publicVariable);
+        }
+      }
+
+      public class Program {
+        public static void Main()
+        {
+          Assembly1BaseClass base1Obj = new Assembly1BaseClass();
+          base1Obj.TestAccessClass();
+          
+          Console.WriteLine("********************");
+          
+          Assembly1DerivedClass derv1Obj = new Assembly1DerivedClass();
+          derv1Obj.TestDerivedClass();
+          Console.WriteLine("********************");
+          derv1Obj.TestAccessClass();
+        }
+      }
+  - Constructors
+    - Special type of function/method which has same name as its class
+    - Invoked automatically when a class is created
+    - Responsible for object initialization and memory allocation of class members
+    - Don't have return type, not even a void type
+    - Support overloading
+    - Types
+      - default
+        - has no parameters
+        - when a class has no constructor, default constructor is served by the compiler to that class
+        - used to assign default values to instance variables of class
+      - parameterized
+        - Can have one or more parameters
+        - used to assign instance variable of class
+        - public class Student {
+            public string name {get; set;}
+            public int id {get; set;}
+            public string school {get; set;}
+            public Student() {
+              this.school = "Xyz school";
+            }
+            public Student(string name, int id, string school) {
+              this.name = name;
+              this.id = id;
+              this.school = school;	
+            }
+            public Student(String name, int id) {
+              this.name = name;
+              this.id = id;
+            }
+          }
+
+
+          public class Program
+          {
+            public static void Main()
+            {
+              Student std1 = new Student();
+              Console.WriteLine("{0} with id : {1} in {2}", std1.name, std1.id, std1.school); //  with id : 0 in Xyz school
+              Student std2 = new Student("Vasanth", 26, "C.S.I");
+              Console.WriteLine("{0} with id : {1} in {2}", std2.name, std2.id, std2.school); // Vasanth with id : 26 in C.S.I
+              Student std3 = new Student("Vasanth", 26);
+              Console.WriteLine("{0} with id : {1} in {2}", std3.name, std3.id, std3.school); // Vasanth with id : 26 in 
+            }
+          }
+      - static
+        - Special type of constructor get called before the first object of class is created
+        - Used to initialize any static fields, or to perform any action that needs to perform only once
+        - A class can have only one static constructor and it must be a default constructor, having no access modifiers
+      - private
+        - Restrict a class instantiation but in nested class we can create instance of this class
+        - in C# 1.0 there was no static so developers use this
+        - Used to implement Singleton pattern [Single instance for a class]
+        - Class can have multiple private and public constructors
+        - public class Demo {
+            private static int Counter;
+            
+            // private constructor
+            private Demo() {
+              Counter = 10;
+            }
+            
+            // static constructor
+            static Demo(){
+              Counter = 15;
+            }
+            
+            // public constructor
+            public Demo(int counter) {
+              Counter = Counter + counter;
+            }
+            
+            public static int getCounter() {
+              return ++Counter;	
+            }
+            
+            public class NestedDemo {
+              public void Test() {
+                // Internal instance
+                Demo demo1 = new Demo();
+              }
+            }
+          }
+
+
+          public class Program {
+            public static void Main() {
+              // This cannot be accessible because Demo is private
+              // Demo demo1 = new Demo();
+              
+              Demo demo1 = new Demo(5);
+              Console.WriteLine(Demo.getCounter());
+            }
+          }
+  - Destructor
+    - Special type method which has same name as its class name preceded by tilde(~) sign
+    - Used to release unmanaged resources allocated by the object
+    - Automatically called before an object is destroyed and cannot be called explicitly
+    - A class can have one destructor
+    - public class Demo {
+        public Demo() {
+          Console.WriteLine("Constructor called...!");
+        }
+        // destructor
+        ~Demo() {
+          // clean-up unmanaged objects
+          Console.WriteLine("Destructor called to clean-up unmanaged objects");
+        }
+      }
+      public class Program {
+        public static void Main() {
+          Demo demo = new Demo();
+        }
+      }
+  - Destructor Vs Finalize
+    - Finalize & Destructor, both are used to release unmanaged resources allocated by an object
+    - Finalize -> .NET framework and it is a part of System.Object class
+    - Destructor -> C# implementation of finalize method
+    - In C# Destructor are converted to finalize method when the program is compiled
+  - Inheritance
+    - Mechanism of acquiring the features and behavior of a class by another class
+    - reduce code redundancy
+    - improves code reusability
+    - code is easy to manage and divided into parent & child classes
+    - supports code extensibility by Overriding the base class functionality with derived class
+    - Types
+      - Single level
+        - A derived class is created from a single base class
+        - Class A -> Class B
+        - public class Vehicle { // base class
+            string owner;
+            string number;
+          }
+          public class Car: Vehicle { // derived class
+            int noOfDoors;
+          }
+      - Multi level
+        - A derived class is created from another derived class
+        - Class A -> Class B -> Class C
+        - public class Vehicle { // base class
+            string owner;
+            string number;
+          }
+          public class FourWheeler: Vehicle { // derived class
+            bool isFourWheeler;
+          }
+          public class Car: FourWheeler { // derived class
+            int noOfDoors;
+          }
+      - Hierarchical
+        - more than one derived classes are created from a single base class
+        - Class A -> Class B
+        - Class A -> Class C
+        - public class Vehicle { // base class
+            string owner;
+            string number;
+          }
+          public class FourWheeler: Vehicle { // derived class
+            bool isFourWheeler;
+          }
+          public class Car: FourWheeler { // derived class [hierarchical]
+            int noOfDoors;
+          }
+          public class Tractor: FourWheeler { // derived class [hierarchicla]
+            int noOfDoors;
+          }
+      - Multiple [C# doesn't Support]
+        - a derived class is created from more than one base class
+        - Class A -> Class C 
+        - Class B -> Class C 
+      - Hybrid [C# doesn't Support]
+        - combination of more than one Inheritance
+        - combination of multi level or multiple or hierarchical inheritance 
+  - Methods
+    - Contains a set of parameters
+    - Has name, parameters, body, return type
+    - declared in a class or struct by specifyin the access modifiers like public or private 
+    - Method overloading
+      - Class has more than one method with same name but having different signature
+      - Adds / extends the behavior of existing method
+      - Method signature includes number & type of parameters
+      - Method signature does not include method return type and method access modifier 
+      - Example of compile time polymorphism, since actual method calling is resolved at compile time
+      - public class Calculator {
+          public int Add(int num1, int num2) {
+            return num1 + num2;
+          }
+          public decimal Add(decimal num1, int num2) {
+            return num1 + num2;
+          }
+          public int Add(int num1, int num2, int num3) {
+            return num1 + num2 + num3;
+          }
+        }
+    - Method Overriding
+      - derived class have the same methods with exaclty the same signautre as base class
+      - change the behavior of an existing method in base class
+      - Methods should have same access modifiers [except private]
+      - Example of run time polymorphism, since actual methos is resolved at runtime
+      - public class Employee {
+          public decimal salary;
+          public virtual decimal calculateSalary() {
+            return salary;
+          }
+        }
+
+        public class SalesEmployee: Employee {
+          public decimal salesBonus;
+          public override decimal calculateSalary() {
+            return salary + salesBonus;
+          }
+        }
+    - Method hiding
+      - Way to hide a method of base class into derived class using new keyword
+      - In the base class method we don't want to declare as virtual
+      - This is resolved at compile time
+      - public class Employee {
+          public decimal salary;
+          public decimal calculateSalary() {
+            return salary;
+          }
+        }
+
+        public class SalesEmployee: Employee {
+          public decimal salesBonus;
+          public new decimal calculateSalary() {
+            return salary + salesBonus;
+          }
+        }
+    - Method parameters
+      - parameters used to pass values to the calling method
+      - syntax: [modifiers] DataType ParameterName
+      - Types
+        - Value
+          - Default parameter type in C#, if the parameter does not have any modifier
+          - Actual value is passed to the method
+          - Changes made to the parameter is local to the method and is not passed back to the calling method
+          - also known as call by value
+        - Ref
+          - can be used as input/output parameter
+          - can be used for passing a value to a method as well as to get back a value from a method
+          - created by preceding the parameter data type with ref modifier
+          - Whenever a ref paramter is passed, a reference is passed to the function
+          - also know as call by reference
+        - Out 
+          - Used to pass back value from a method
+          - Created by preceding the parameter data type with out modifier
+          - When an out parameter is passed only an unassigned ref is passed to the method ans within the method value is set
+        - Default Param / Optional Argument
+          - To define default values to method parameters
+          - Also know as optional parameter, since we can omit values for these params
+          - must be defined after all required params
+        - Params 
+          - To pass n number of arguments to a method
+          - should be the last parameter in method call if there are more than one receiving parameter
+          - Should be a single dimensional array
+        - public class Utility {
+            public void CallByVal(int x) {
+              x = 10;
+            }
+            public void CallByRef(ref int x) {
+              x = 10; // optional
+            }
+            public void CallByOut(out int x) {
+              x = 15; // mandatory
+            }
+            public int CallByOptional(int x, int y = 2) {
+              return x * y;
+            }
+            public void CallByParams(int y, params int[] x) {
+              foreach(int val in x) {
+                Console.WriteLine(val);
+              }
+            }
+          } 
+          public class Program {
+            public static void Main() {
+              int num1 = 5,
+                num2 = 7, // value initialization is mandatory for ref
+                num3; // value initialization is optional for out
+              Utility utl = new Utility();
+              
+              Console.WriteLine("Value before calling the method; {0}", num1);
+              utl.CallByVal(num1);
+              Console.WriteLine("Value after calling the method; {0}", num1);
+              
+              Console.WriteLine("Value before calling the method; {0}", num2);
+              utl.CallByRef(ref num2);
+              Console.WriteLine("Value after calling the method; {0}", num2);
+              
+              utl.CallByOut(out num3);
+              Console.WriteLine("Value after calling the method; {0}", num3);
+              
+              Console.WriteLine("Value after calling the method; {0}", utl.CallByOptional(6));
+              Console.WriteLine("Value after calling the method; {0}", utl.CallByOptional(6, 4));
+              
+              utl.CallByParams(1,2,3,4,5);
+            }
+          } 
+  - Structure
+    - User defined data structure that contains data members and member functions
+    - A value type and stored in Stack
+    - We cannot assign value to instance field in a struct body
+    - Can be initialized with or without new keyword
+    - Suitable for lightweight objects
+    - public struct Points {
+        public int x, y;
+        public Points(int p1, int p2) {
+          x = p1;
+          y = p2;
+        }
+      }
+
+      public class Program {
+        public static void Main() {
+          // Points pts = new Points(4,7);
+          Points pts;
+          pts.x = 4;
+          pts.y = 7;
+          Console.WriteLine("x: {0}, y: {1}",pts.x, pts.y);
+        }
+      }
+  - Structre Vs Class
+    - Feature	                Struct	                                  Class
+      Type	                  Value type	                              Reference type
+      Memory Allocation 	    Allocated on the stack (usually)	        Allocated on the heap
+      Inheritance	            Cannot inherit from another struct/class	Can inherit from another class
+      Implements Interfaces	  ✅ Yes	                                   ✅ Yes
+      Default Constructor	    ❌ No (you cannot define one)	           ✅ Yes
+      Nullability	            Cannot be null (unless nullable)	        Can be null
+      Performance	            Generally more efficient for small types	Less efficient due to heap allocation
+      Usage Scenario	        Small, immutable types (like Point)	      Complex, mutable types
+  - Property
+    - Acts as a wrapper around a field
+    - Used to assign and read the value from the field by using get and set accessors
+    - This can be created for pubic, private, protected and internal field
+    - They don't denote storage locations
+    - We cannot pass it as a ref or out parameter
+    - Uses
+      - Protects a field from reading and writing
+      - validate a data before assigning it tp a field
+      - Can perform intermediate computation on data before assigning or retriving
+      - Log all access for a field
+    - public class User {
+        private string firstName;
+        public string FirstName {
+          get {
+            return firstName;
+          }
+          set {
+            if(string.IsNullOrEmpty(value)) {
+              throw new ArgumentNullException("Value can't be null or empty");
+            } else {
+              firstName = value;
+            }
+          }
+        }
+        
+        private string lastName;
+        public string LastName {
+          get {
+            return lastName;
+          }
+          set {
+            lastName = value;
+          }
+        }
+        
+        private string fullName;
+        public string FullName {
+          get {
+            return this.firstName + " " + this.lastName;
+          }
+        }
+      }
+      public class Program {
+        public static void Main() {
+          try {
+            User user = new User();
+            user.FirstName = "Vasanth";
+            // user.FirstName = "";
+            user.LastName = "Sadasivam";
+            Console.WriteLine(user.FirstName);
+            Console.WriteLine(user.LastName);
+            Console.WriteLine(user.FullName);
+          } catch (Exception ex) {
+            Console.WriteLine(ex.Message);
+          }
+        }
+      }
+    - Types
+      - Read-Write {get; set;}
+      - Read-Only {get;}
+      - Write-Only {set;}
+      - Auto-Implemented {get; set;} (without implementation)
+      - public class User {
+          // read-write
+          private string name;
+          public string Name {
+            get { return name; }
+            set { name = value; }
+          }
+          
+          // write-only
+          private DateTime dob;
+          public DateTime DOB {
+            set { dob = value; }
+          }
+          
+          // read-only
+          private int age;
+          public int Age {
+            get { return age; }
+          }
+          
+          // auto-immplementation
+          // In case of auto-implementation private property are auto implemented by C# compiler
+          public string FullName {get; set;}
+        }
+  - Indexer
+    - allow instance of struct or class to be indexed same as array
+    - unlike property this keyword is used to define an Indexer
+    - It can be overloaded
+    - we cannot pass an indexer as an ref or out parameter
+    - public class TempRecord {
+        private float[] temps = new float[5] {56.2F, 56.7F, 57.5f, 58.2F, 58.7F};
+        public int Length {
+          get { return temps.Length; }
+        }
+        public float this[int index] {
+          get {
+            if(index < Length) {
+              return temps[index];
+            } else {
+              throw new IndexOutOfRangeException("Index should be within 0-4");
+            }
+          }
+          set {
+            if(index < Length) {
+              temps[index] = value;
+            } else {
+              throw new IndexOutOfRangeException("Index should be within 0-4");
+            }
+          }
+        }
+      }
+      public class Program {
+        public static void Main() {
+          TempRecord tempRecord = new TempRecord();
+          tempRecord[0] = 40.2F;
+          for(int i = 0; i < tempRecord.Length; i++) {
+            Console.WriteLine(tempRecord[i]);
+          }
+        }
+      }  
+  - Exception Handling
+    - Mechanism to detect and handle runtime errors
+    - Achieved by try-catch-finally blocks & throw keyword
+    - These are types that all directly or indirectly derive from System.Exception class
+    - Exception object gives detailed information about the error
+    - Try block
+      - Encloses the statements that might throw multiple exceptions
+      - Exceptions can be explicitly generated by throw keyword
+      - Corresponding a try block, there might be a multiple catch block or a finally block or both
+    - Catch block
+      - Handle any exception if any exists
+      - More specialized catch block should come before the generalized one
+    - Finally block
+      - Used for doing any clean-up process like releasing un-used resources even if an excemption is thrown
+      - Statement inside this are always executed whether exception occurs or not in the program
+  - Custom Exception
+    - user defined exceptions
+    - derived from exception class, where we can write our own logic
+    - created to show user friendly messages
+  - Enum
+    - In C# it is a value type that contains a list of named constants called enumerator list
+    - by default first enumerator has index 0 & each successive value increases by 1
+    - Used to define static constant or constant flag
+    - enum Weekdays { Mon, Tue, Wed, Thu, Fri } // here index starts with 0
+    - enum TransactionStatus { success = 1, pending, failed } // here index starts with 1
+    - Console.WriteLine("{0} : {1}", Weekdays.Wed, (int)Weekdays.Wed); // Wed : 2
+    - Console.WriteLine("{0} : {1}", TransactionStatus.pending, (int)TransactionStatus.pending); // pending : 2
+
+
+  - Test syntax
+    - double a=1000.045;
+      Console.WriteLine(a.ToString(("#,0.00"))); // 1,000.05
+      Console.WriteLine(Math.Round(a, 2)); // 1000.04
+      Console.WriteLine(Math.Round(a, 2, MidpointRounding.AwayFromZero)); // 1000.05
+      
+      double b=0.85555;
+      Console.WriteLine(b.ToString(("P"))); // 85.56%
+      
+      int c= 123;
+      Console.WriteLine(c.ToString(("d5"))); // 00123
+    
+      string d="000789";
+      Console.WriteLine(d.TrimStart('0')); // 789
+      
+      string e = "a,b,c,d,e";
+      Console.WriteLine(
+        string.Join(",",e.Split(',').Select(x=>string.Format("'{0}'",x)))
+      ); // 'a','b','c','d','e'
