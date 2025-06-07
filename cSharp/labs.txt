@@ -1,0 +1,1282 @@
+#1: Area of square
+public class AreaOfSquare {
+	public static void Main(string[] args) {
+		Console.WriteLine("Enter the side of square:");
+		int side = Convert.ToInt32(Console.ReadLine());
+		int result = side * side;
+		Console.WriteLine("Area of square is : {0}",result);
+	}
+}
+
+#2: Swap numbers with second variable
+public class SwapTwoNumbers {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter first number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Please enter second number : ");
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
+        Console.WriteLine("First value after swapping: {0}, Second value after swapping: {1}", num1, num2);
+    }
+}
+
+#3: Swap Number Without Third Variable 
+public class SwapWithoutThirdVariable {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter first number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Please enter second number : ");
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        num1 = num1 + num2;
+        num2 = num1 - num2;
+        num1 = num1 - num2;
+        Console.WriteLine("First value after swapping: {0}, Second value after swapping: {1}", num1, num2);
+    }
+}
+
+#4: Sum Of All Numbers
+public class SumOfAllNumbers {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int result = 0;
+        while(num1 > 0) {
+            result += num1 % 10;
+            num1 /= 10;
+        }
+        Console.WriteLine("Sum of all numbers is : {0}", result);
+    }
+}
+
+#5: Check Character Is Alphabet or Not
+public class CharIsAplhabetOrNot {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a character : ");
+        char s1 = Convert.ToChar(Console.ReadLine());
+        char lowerChar = Char.ToLower(s1);
+        if(lowerChar >= 'a' && lowerChar <= 'z') {
+            Console.WriteLine("It is an Alphabet");
+        } else {
+            Console.WriteLine("It is not an Alphabet");
+        }
+    }
+}
+
+#6: Check if a Number Is Even or Odd
+public class EvenorOdd {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a number : ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        if(number % 2 == 0) {
+            Console.WriteLine("It is even number");
+        } else {
+            Console.WriteLine("It is odd number");
+        }
+    }
+}
+
+#7: Check Number Is Positive or Negative
+public class PostiveorNegative {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please Enter a Number");
+        int num = Convert.ToInt32(Console.ReadLine());
+        if(num < 0) {
+            Console.WriteLine("It is Negative number");
+        } else {
+            Console.WriteLine("It is Positive number");
+        }
+    }
+}
+
+#8: Check Whether an Alphabet Is Vowel or Consonant
+public class CharIsVowelorConsonant {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a character");
+        char enteredChar = Convert.ToChar(Console.ReadLine());
+        char lowerChar = Char.ToLower(enteredChar);
+        if(lowerChar == 'a' || lowerChar == 'e' || lowerChar == 'i' || lowerChar == 'o' || lowerChar == 'u') {
+            Console.WriteLine("Entered Character is Vowel");
+        } else {
+            Console.WriteLine("Entered Character is Consonant");
+        }
+    }
+}
+
+#9: Find the Largest Number among the Three Numbers
+public class  LargestAmongAll {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter Three numbers : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        int num3 = Convert.ToInt32(Console.ReadLine());
+
+        if(num1 > num2 && num1 > num3) {
+            Console.WriteLine("Num1 is the largest");
+        } else if(num2 > num3) {
+            Console.WriteLine("Num2 is the largest");
+        } else {
+            Console.WriteLine("Num3 is the largest");
+        }
+    }
+}
+
+#10: Check whether a Year is Leap Year or Not
+public class YearIsALeapYearOrNot {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a year to check : ");
+        int year = Convert.ToInt32(Console.ReadLine());
+        if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            Console.WriteLine("It's a Leap year");
+        } else {
+            Console.WriteLine("It's not a Leap year");
+        }
+    }
+}
+
+#11: Display the Fibonacci Series
+public class FabonacciSeries {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter the Fibonacci length : ");
+        int length = Convert.ToInt32(Console.ReadLine());
+        int num1 = 0, num2 = 1;
+        for(int i = 1; i <= length; i++) {
+            Console.Write("{0}, ", num1);
+            // Console.Write($"{num1}, "); // We can use both the lines
+            int nextNum = num1 + num2;
+            num1 = num2;
+            num2 = nextNum;
+        }
+    }
+}
+
+#12: Find the Highest Common Factor (HCF) or Greatest Common Factor (GCD)
+public class HCForGCD {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter two numbers : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        int hcf = 1;
+        for(int i = 1; i <= num1 && i <= num2; i++) {
+            if(num1 % i == 0 && num2 % i == 0) {
+                hcf = i;
+            }
+        }
+        Console.WriteLine($"GCD of {num1}, {num2} is {hcf}");
+    }
+}
+
+#13: Find the Factorial of a Number
+public class Factorial {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a number to calculate factorial for : ");
+        int num = Convert.ToInt32(Console.ReadLine());
+        int result = num;
+        for(int i = result - 1; i >= 1; i--) {
+            result *= i;
+        }
+        Console.WriteLine($"Factoral of {num} is : {result}");
+    }
+}
+
+#14: Find the Lowest Common Multiple Factor (LCM)
+public class Lcm {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter two numbers to calculate LCM for : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        int lcm = LCM(num1, num2);
+        Console.WriteLine($"LCM of {num1} and {num2} is: {lcm}");
+    }
+
+    static int GCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    static int LCM(int a, int b) {
+        return Math.Abs(a * b) / GCD(a, b);
+    }
+}
+
+#15: Check whether a Number is Palindrome Or Not
+public class Palindrome {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a number to check palindrome : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int num2 = ReversedNum(Math.Abs(num1));
+        if(num1 == num2) {
+            Console.WriteLine("It is a Palindrome");
+        } else {
+            Console.WriteLine("It is not a Palindrome");
+        }
+    }
+
+    static int ReversedNum(int a) {
+        int result = 0;
+        while(a > 0) {
+            int digit = a % 10;
+            result = result * 10 + digit;
+            a /= 10;
+        }
+        return result;
+    }
+}
+
+#16: To Check Number Is Armstrong Or Not
+public class Armstrong {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a number to check ArmStrong : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        if(checkArmstrong(num1)) {
+            Console.WriteLine("Entered number is Armstrong");
+        } else {
+            Console.WriteLine("Entered number is not Armstrong");
+        }
+    }
+
+    static int getLength(int a) {
+        int length = 0;
+        while(a > 0) {
+            length += 1;
+            a /= 10;
+        }
+        return length;
+    }
+
+    static bool checkArmstrong(int a) {
+        int original = a;
+        int result = 0;
+        int pow = getLength(a);
+        while(a > 0) {
+            int remainder = a % 10;
+            result += (int)Math.Pow(remainder, pow);
+            a /= 10;
+        }
+        return result == original;
+    }
+}
+
+#17: To Check Number Is Prime Or Not
+public class PrimeOrNot {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a number to check Prime or not : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        if(checkPrime(num1)) {
+            Console.WriteLine("It's a Prime number");
+        } else {
+            Console.WriteLine("It's not a Prime number");
+        }
+    }
+
+    static bool checkPrime(int a) {
+        int value = (int)Math.Sqrt(a);
+        for(int i = 2; i <= value; i++) {
+            if(a % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+#18: Count the Vowel and Consonants in A Sentence
+public class CountNumberOfVowelandConsonantInASentence {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter string to count consonants : ");
+        string s1 = Convert.ToString(Console.ReadLine().Trim());
+        int vCount = 0, cCount = 0;
+        foreach (char c in s1.ToLower()) {
+            if ("aeiou".Contains(c)) {
+                vCount++;
+            } else if (c >= 'a' && c <= 'z') {
+                cCount++;
+            }
+        }
+        Console.WriteLine($"Vowels : {vCount}, Consonants : {cCount}");
+    }
+}
+
+#19: To Make A Calculator For Addition Subtraction Multiplication and Division Of Two Numbers
+public class Calculator {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter two numbers : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Please enter 1 for Addition, 2 for Subraction, 3 for Multiplication, 4 for Division");
+        int num3 = Convert.ToInt32(Console.ReadLine());
+        switch(num3) {
+            case 1:
+                Console.WriteLine($"Sum of 2 numbers is {num1+num2}");
+                break;
+            case 2:
+                Console.WriteLine($"Diff of 2 numbers is {Math.Abs(num1-num2)}");
+                break;
+            case 3:
+                Console.WriteLine($"Product of 2 numbers is {num1*num2}");
+                break;
+            case 4:
+                Console.WriteLine($"Division of 2 numbers is {num1/num2}");
+                break;
+            default:
+                Console.WriteLine("Please select correct option");
+				break;
+        }
+	}
+}
+
+#20: To Print a table of a number using Loops
+public class PrintTable {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= 10; i++) {
+            Console.WriteLine($"{num1} * {i} = {num1 * i}");
+        }
+    }
+}
+
+#21: Right Triangle Star Pattern
+public class RightTriangleStarPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= i; j++) {
+                Console.Write("* ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#22: Left Triangle Star Pattern
+public class RightTriangleStarPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= num1; j++) {
+				if(j > num1 - i) {
+					Console.Write("* ");
+				} else {
+                	Console.Write("  ");
+				}
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+public class RightTriangleStarPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < num1; i++) {
+			for (int j = 2 * (num1 - i); j >= 0; j--) {
+				Console.Write(" ");
+			}
+			for (int j = 0; j <= i; j++) {
+				Console.Write(" *");
+			}
+			Console.WriteLine();
+		} 
+    }
+}
+
+#23: Pyramid Star Pattern
+public class PyramidStarPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= num1 - i; j++) {
+                Console.Write(" ");
+            }
+            for(int k = 1; k <= (2 * i - 1); k++) {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+	}
+}
+
+#24: Diamond Star Pattern
+public class DiamonStarPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= num1 - i; j++) {
+                Console.Write(" ");
+            }
+            for(int k = 1; k <= (2 * i - 1); k++) {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+        for(int i = num1; i > 0; i--) {
+			for(int k = 1; k <= num1 - i; k++) {
+                Console.Write(" ");
+            }
+            for(int j = 1; j <= (2 * i - 1); j++) {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#25: Right Triangle Number Pattern
+public class RightTriangleNumberPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{j}");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#26: Right Triangle Repeat Number Pattern
+public class RightTriangleRepeatNumberPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{i}");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#27: Pyramid Number Pattern (Asc)
+public class PyramidNumberPatternAsc() {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= (num1 - i); j++) {
+                Console.Write(" ");
+            }
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{j} ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#28: Pyramid Number Pattern (Desc)
+public class PyramidNumberPatternDesc() {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= (num1 - i); j++) {
+                Console.Write(" ");
+            }
+            for(int j = num1 + 1 - i; j <= num1; j++) {
+                Console.Write($"{j} ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#29: Pyramid Repeat Number Pattern
+public class PyramidRepeatNumberPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= num1 - i; j++) {
+                Console.Write(" ");
+            }
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{i} ");
+            }
+			Console.WriteLine();
+        }
+    }
+}
+
+#30: Inverted Right Triangle Number Pattern (Asc)
+public class InvertedTriangleNumberPatternAsc {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = num1; i > 0; i--) {
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{j} ");
+            }
+			Console.WriteLine();
+        }
+    }
+}
+
+#31: Inverted Right Triangle Number Pattern (Desc)
+public class InvertedTriangleNumberPatternDesc {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = num1; i > 0; i--) {
+            for(int j = num1; j >= num1 + 1 - i; j--) {
+                Console.Write($"{j} ");
+            }
+			Console.WriteLine();
+        }
+    }
+}
+
+#32: Right Triangle Number Pattern (Asc)
+public class RightTriangleNumberPatternAsc {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int num2 = 1;
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{num2} ");
+                num2++;
+            }
+			Console.WriteLine();
+        }
+    }
+}
+
+#33: Right Triangle Number Pattern (Desc)
+public class RightTriangleNumberPatternDesc {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = num1; i > 0; i--) {
+            for(int j = num1; j >= i; j--) {
+                Console.Write($"{j} ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#34: Diamond Number Pattern
+public class NumberDiamondPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+		for(int i = 1; i <= num1; i++) {
+			for(int j = num1 - i; j > 0; j--) {
+				Console.Write(" ");
+			}
+			for(int j = 1; j <= i; j++) {
+				Console.Write(j);
+			};
+			for(int j = i - 1; j > 0; j--) {
+				Console.Write(j);
+			}
+			Console.WriteLine();
+		};
+		for(int i = 5; i > 0; i--) {
+			for(int j = i; j < num1; j++) {
+				Console.Write(" ");
+			}
+			for(int j = 1; j <= i; j++) {
+				Console.Write(j);
+			}
+			for(int j = i - 1; j > 0; j--) {
+				Console.Write(j);
+			}
+			Console.WriteLine();
+		}
+    }
+}
+
+#35: Right Triangle Alphabetic Pattern
+public class RightTriangleAlphabeticPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= i; j++) {
+                Console.Write(Convert.ToChar(j+64));
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#36: Right Triangle Repeat Alphabet Pattern
+public class RightTriangleRepeatAlphabeticPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= i; j++) {
+                Console.Write(Convert.ToChar(i+64));
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#37: Pyramid Alphabet Pattern (Asc)
+public class PyramidAlphabetPatternAsc {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j < num1 - i + 1; j++) {
+                Console.Write(" ");
+            }
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{Convert.ToChar(j+64)} ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#38: Pyramid Alphabet Pattern (Desc)
+public class PyramidAlphabetPatternDesc {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for (int i = num1; i > 0; i--) {
+			for (int j = 1; j < i; j++) {
+				Console.Write(" ");
+			}
+			for (int k = i; k <= num1; k++) {
+				Console.Write(Convert.ToChar(k + 64) + " ");
+			}
+			Console.WriteLine();
+		} 
+    }
+}
+
+#39: Pyramid Repeat Alphabet Pattern
+public class PyramidRepeatAlphabetPattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+			for(int j = 1; j <= num1 - i; j++) {
+				Console.Write(" ");
+			}
+            for(int j = 1; j <= i; j++) {
+                Console.Write(Convert.ToChar(i + 64) + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#40: Inverted Right Triangle Alphabet Pattern
+public class InvertedRightTriangleAlphabetPattern  {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = 1; j <= num1 - i + 1; j++) {
+                Console.Write(Convert.ToChar(j + 64) + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#41: Diamond Alphabet Pattern
+public class DiamondAlphabetpattern {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        for(int i = 1; i <= num1; i++) {
+            for(int j = num1 - i; j > 0; j--) {
+                Console.Write(" ");
+            }
+            for(int j = 1; j <= i; j++) {
+                Console.Write($"{Convert.ToChar(j+64)} ");
+            }
+            Console.WriteLine();
+        }
+		for(int i = 1; i <= num1; i++) {
+            for(int j = i; j > 0; j--) {
+                Console.Write(" ");
+            }
+            for(int j = 1; j <= num1 - i; j++) {
+                Console.Write($"{Convert.ToChar(j+64)} ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#42: Calculate Standard deviation
+public class StandardDeviation {
+    public static void Main(string[] args) {
+        double[] sampleArray = {35, 48, 60,90, 95, 110};
+
+        Console.WriteLine("The elements of array are : ");
+        foreach(double i in sampleArray) {
+            Console.WriteLine(i+" ");
+        }
+		
+		double sum = 0.0, standard_deviation = 0.0;
+		int arrayLength = sampleArray.Length;
+		foreach(double i in sampleArray) {
+			sum += i;
+		}
+		double mean = sum / arrayLength;
+		
+		foreach(double i in sampleArray) {
+			standard_deviation += Math.Pow(i - mean, 2);
+		}
+		double result = Math.Sqrt(standard_deviation/arrayLength);
+		Console.WriteLine($"Standard Deviation of the Array is {result}");
+    }
+}
+
+#43: Calculate the Average of Array Element
+using System.Linq;
+using System.Linq.Queryable;
+
+public class AverageOfAnArrayElement {
+    public static void Main(string[] args) {
+        int[] arr = new int[] { 12, 67, 420, 69, 89, 67, 98, 458, 178 };
+        // double average = Queryable.Average(arr.AsQueryable());
+        Console.WriteLine("Average of These Array Element are:");
+        for (int i = 0; i < arr.Length; i++) {
+            Console.WriteLine(arr[i]);
+        };
+        int sum = 0;
+        foreach (int i in arr) {
+            sum += i;
+        }
+        double result = sum / arr.Length;
+        Console.WriteLine($"Average is: {result}"); 
+    }
+}
+
+#44: Find The Largest Element of an Array
+using System.Linq;
+
+public class LargestElementinArray {
+    public static void Main(string[] args) {
+        int[] arr = new int[] { 87, 5, 897, 3478, 980, 3242, 987 };
+        // Console.WriteLine(arr.Max());
+        int result = 0;
+        foreach (int i in arr) {
+            if(i > result) {
+                result = i;
+            }
+        }
+        Console.WriteLine(result);
+    }
+}
+
+#45: Concatenate Two Arrays
+public class ConcatenateTwoArrays {
+    public static void Main(string[] args) {
+        int[] arraynumber1 = { 1, 2, 3 };
+        int[] arraynumber2 = { 4, 5, 6 };
+        int[] ConcatenatedArray = arraynumber1.Concat(arraynumber2).ToArray();
+        Console.WriteLine(String.Join(",", ConcatenatedArray)); 
+    }
+}
+
+using System.Collections.Generic;
+public class ConcatenateTwoArrays {
+    public static void Main(string[] args) {
+        int[] arraynumber1 = { 1, 2, 3 };
+        int[] arraynumber2 = { 4, 5, 6 };
+        List<int> concatenatedArray = new List<int>();
+        foreach(int i in arraynumber1) {
+            concatenatedArray.Add(i);
+        }
+        foreach(int i in arraynumber2) {
+            concatenatedArray.Add(i);
+        }
+        Console.WriteLine(String.Join(",", concatenatedArray));
+    }
+}
+
+#46: Check if an Array contains a Given Values
+public class FindTheElementIsInArrayOrNot {
+    public static void Main(string[] args) {
+        string[] language = {"Ruby", "C", "C++", "Java", "Perl", "C#", "Python", "PHP"};
+        Console.WriteLine("Please enter a programming language : ");
+        string entered_lang = Convert.ToString(Console.ReadLine());
+        Console.WriteLine($"Is {entered_lang} available in list : {Array.Exists(language, element => element == entered_lang)}");
+    }
+}
+
+#47: Check if a String is Numeric
+using System.Linq;
+
+public class StringIsNumeric {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter a String : ");
+        string str = Convert.ToString(Console.ReadLine());
+        if(str.All(char.IsDigit)) {
+            Console.WriteLine("Given string is numeric");
+        } else {
+            Console.WriteLine("Given string is not-numeric");
+        }
+    }
+}
+
+#48: Compare Two Strings
+public class CompareTwoStrings {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter a string : ");
+        string str1 = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Enter a string : ");
+        string str2 = Convert.ToString(Console.ReadLine());
+        Console.WriteLine($"Both the strings are {(string.Compare(str1, str2) == 0 ? "same" : "not same")}");
+    }
+}
+
+#49: Iterate through each Character of the String
+public class IterateAllString {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter a string : ");
+        string str1 = Convert.ToString(Console.ReadLine());
+        foreach(char str in str1) {
+            Console.WriteLine(str);
+        }
+    }
+}
+
+#50: Check if a String is a palindrome or not
+public class Palindrome {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter a string : ");
+        string str1 = Convert.ToString(Console.ReadLine());
+        Console.WriteLine(isPalindrome(str1));
+    }
+    public static bool isPalindrome(string str) {
+        char[] c = str.ToCharArray();
+        Array.Reverse(c);
+        return new String(c).Equals(str);
+    }
+}
+
+#51: Capitalize the first character of each Word in a String
+public class CapitalizeFirstLetter {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter a string : ");
+        string str1 = Convert.ToString(Console.ReadLine());
+        if(str1.Length == 0) {
+            Console.WriteLine("Empty String");
+        } else if(str1.Length == 1) {
+            Console.WriteLine(char.ToUpper(str1[0]));
+        } else {
+            Console.WriteLine(char.ToUpper(str1[0]) + str1.Substring(1));
+        }
+    }
+}
+
+#52: Rotate a Matrix by 90 degrees
+public class RotateMatrix {
+    public static void Main(string[] args) {
+        int n = 3;
+        int[,] matrix = {
+            {10, 11, 12},
+            {7, 8, 9},
+            {13, 14, 15}
+        };
+
+        Console.WriteLine("The original matrix is:");
+        PrintMatrix(matrix, n);
+
+        RotateRight(matrix, n);
+
+        Console.WriteLine("The rotated matrix is:");
+        PrintMatrix(matrix, n);
+    }
+
+    static void RotateRight(int[,] matrix, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int temp = matrix[i, j];
+                matrix[i, j] = matrix[j, i];
+                matrix[j, i] = temp;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            int low = 0;
+            int high = n - 1;
+            while (low < high) {
+                int temp = matrix[i, low];
+                matrix[i, low] = matrix[i, high];
+                matrix[i, high] = temp;
+                low++;
+                high--;
+            }
+        }
+    }
+
+    static void PrintMatrix(int[,] matrix, int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                Console.Write(matrix[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+#53: Create A Student Class for Listing, Adding and Removing a Student
+public class Student {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter number of students : ");
+        int numberOfStudents = Convert.ToInt32(Console.ReadLine());
+        String[] students = new String[numberOfStudents];
+
+        Console.WriteLine("Enter the students one by one : ");
+        Console.WriteLine("Press Enter button after each element : ");
+        for(int i = 0; i < numberOfStudents; i++) {
+            students[i] = Convert.ToString(Console.ReadLine());
+        };
+
+        StudentWorking stw = new StudentWorking();
+        stw.ListStu(students);
+
+        Console.WriteLine("Please enter the student name you want to add : ");
+        String student = Convert.ToString(Console.ReadLine());
+        stw.AddStu(students, student);
+    }
+}
+
+public class StudentWorking {
+    public void ListStu(String[] students) {
+        Console.WriteLine("Entered students are below : ");
+        foreach(string student in students) {
+            Console.WriteLine(student);
+        }
+    }
+
+    public void AddStu(String[] students, String newStudent) {
+        int students_length = students.Length;
+        String[] newArr = new String[students_length + 1];
+        for(int i = 0; i < students_length; i++) {
+            newArr[i] = students[i];
+        };
+        newArr[students_length] = newStudent;
+        students = newArr;
+        Console.WriteLine("Updated of list of students is below : ");
+        ListStu(students);
+    }
+}
+
+#54: Create an Exception Class to Display a Custom Error Message Based On The Exception Type
+public class CustomErrorMessage {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter first number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Please enter second number : ");
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        Exec.Exep(num1, num2);
+    }
+}
+
+public class Exec {
+    public static void Exep(int num1, int num2) {
+        try {
+            int Divide = num1 / num2;
+            Console.WriteLine("The result is : " + Divide);
+        } catch(ArithmeticException exception) {
+            Console.WriteLine("Output of GetHashCode() method :  ");
+            Console.WriteLine(exception.GetHashCode);
+            Console.WriteLine("Output of GetBaseException() method : ");
+            Console.WriteLine(exception.GetBaseException);
+        }
+    }
+}
+
+#55: Create Classes for Building Different Types Of Vehicles like Bikes, Scooters, Cars In A Factory
+public class CreateClassForBuildingDifferentVehicles {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please tell the vehicle type : Bike, Car, Scooter");
+        String str1 = Convert.ToString(Console.ReadLine());
+
+        switch(str1) {
+            case "Bike":
+                Bike.CreateBikes();
+                break;
+            case "Car":
+                Car.CreateCars();
+                break;
+            case "Scooter":
+                Scooter.CreateScooters();
+                break;
+            default:
+                Console.WriteLine("Please enter valid vehicle");
+                break;
+        }
+    }
+}
+
+public class Bike() {
+    public static void CreateBikes() {
+        Console.WriteLine("What brand do you want : ");
+        String brand = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What color do you want : ");
+        String color = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What engine do you want : ");
+        String engine = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What brand tires do you want : ");
+        String tires = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("All the specifications are : {0}, {1}, {2}, {3}",brand,color,engine,tires);
+    }
+}
+
+public class Car() {
+    public static void CreateCars() {
+        Console.WriteLine("What brand do you want : ");
+        String brand = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What color do you want : ");
+        String color = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What engine do you want : ");
+        String engine = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What brand tires do you want : ");
+        String tires = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("All the specifications are : {0}, {1}, {2}, {3}",brand,color,engine,tires);
+    }
+}
+
+public class Scooter() {
+    public static void CreateScooters() {
+        Console.WriteLine("What brand do you want : ");
+        String brand = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What color do you want : ");
+        String color = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What engine do you want : ");
+        String engine = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("What brand tires do you want : ");
+        String tires = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("All the specifications are : {0}, {1}, {2}, {3}",brand,color,engine,tires);
+    }
+}
+
+#56: Create Classes for Employee
+public class Employee {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter your first name : ");
+        String firstname = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Plese enter your last name : ");
+        String lastname = Convert.ToString(Console.ReadLine());
+
+        if(firstname == "" || lastname == "") {
+            Console.WriteLine("Please enter your first name : ");
+            firstname = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Plese enter your last name : ");
+            lastname = Convert.ToString(Console.ReadLine());
+        }
+
+        Console.WriteLine("Please enter your age : ");
+        int age = Convert.ToInt32(Console.ReadLine());
+
+        if(age < 18) {
+            Console.WriteLine("You are not applicable for this job");
+        } else {
+            DisplayDetails(firstname, lastname, age);
+        }
+    }
+
+    public static void DisplayDetails(String fname, String lname, int age) {
+        Console.WriteLine("Thanks for the application, kindly check the details below");
+        Console.WriteLine($"your first name is {fname}");
+        Console.WriteLine($"your last name is {lname}");
+        Console.WriteLine($"your age is {age}");
+    }
+}
+
+#57: Find the Factorial Of A Number Using Recursion
+public class FactorialButWithIntervals {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        double factorial = factorialCalculator(num1);
+        Console.WriteLine($"factorial of number {num1} is : {factorial}");
+    }
+
+    public static long factorialCalculator(int num) {
+        if(num > 1) {
+            return num * factorialCalculator(num - 1);
+        } else {
+            return 1;
+        }
+    }
+}
+
+#58: Create Classes For Handling Different Bank Accounts (Saving and Current) Submit, Withdrawal
+public class Bank {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter Savings for Savings Account and Current for Current Account : ");
+        String accountType = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Please enter Submit for Submition, Withdraw for Withdrawal : ");
+        String status = Convert.ToString(Console.ReadLine());
+
+        switch(accountType) {
+            case "Savings":
+                switch (status) {
+                    case "Submit":
+                        Console.WriteLine("Please enter your total money : ");
+                        int tMoney = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Please enter your money to submit : ");
+                        int sMoney = Convert.ToInt32(Console.ReadLine());
+                        Saving.Submit(tMoney, sMoney);
+                        break;
+                    case "Withdraw":
+                        Console.WriteLine("Please enter your total money : ");
+                        int totMoney = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Please enter your money to withdraw : ");
+                        int wMoney = Convert.ToInt32(Console.ReadLine());
+                        Saving.Withdraw(totMoney, wMoney);
+                        break;
+                    default:
+                        Console.WriteLine("Enter correct option");
+                        break;
+                }
+                break;
+            case "Current":
+                switch (status) {
+                    case "Submit":
+                        Console.WriteLine("Please enter your total money : ");
+                        int tMoney = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Please enter your money to submit : ");
+                        int sMoney = Convert.ToInt32(Console.ReadLine());
+                        Saving.Submit(tMoney, sMoney);
+                        break;
+                    case "Withdraw":
+                        Console.WriteLine("Please enter your total money : ");
+                        int totMoney = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Please enter your money to withdraw : ");
+                        int wMoney = Convert.ToInt32(Console.ReadLine());
+                        Saving.Withdraw(totMoney, wMoney);
+                        break;
+                    default:
+                        Console.WriteLine("Enter correct option");
+                        break;
+                }
+                break;
+            default:
+                Console.WriteLine("Please enter correct account");
+                break;
+        }
+    }
+}
+
+class Saving {
+    public static void Submit(int tMoney, int sMoney) {
+        int totalMoney = tMoney + sMoney;
+        Console.WriteLine($"Money in your account is : {totalMoney}");
+    }
+    public static void Withdraw(int tMoney, int sMoney) {
+        int totalMoney = tMoney - sMoney;
+        Console.WriteLine($"Money in your account is : {totalMoney}");
+    }
+}
+
+#59: Convert Binary Numbers to Decimals  
+public class BinaryToDecimal {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter a binary number : ");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int decimalValue = 0, binaryValue = num1, baseValue = 1;
+        while(num1 > 0) {
+            int remainder = num1 % 10;
+            decimalValue += (remainder * baseValue);
+            num1 /= 10;
+            baseValue *= 2;
+        }
+        Console.WriteLine($"Entered Binary value is : {binaryValue}");
+        Console.WriteLine("Decimal value is {0}", decimalValue);
+    }
+}
+
+#60: Display Armstrong Numbers Between Intervals
+public class ArmstrongButWithIntervals {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter low number : ");
+        int low = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Please enter high number : ");
+        int high = Convert.ToInt32(Console.ReadLine());
+        Armstrong(low, high);
+    }
+    public static void Armstrong(int low, int high) {
+        for(int i = low + 1; i < high; i++) {
+            int digits = 0, originalNumber = i;
+            double result = 0;
+
+            while(originalNumber > 0) {
+                originalNumber /= 10;
+                digits++;
+            }
+
+            originalNumber = i;
+            while(originalNumber > 0) {
+                int remainder = originalNumber % 10;
+                result += Math.Pow(remainder, digits);
+                originalNumber /= 10;
+            }
+
+            if(i == result) {
+                Console.WriteLine(i + " ");
+            }
+        }
+    }
+}
+
+#61: Display Prime Numbers Between Intervals
+public class PrimeInterval {
+    public static void Main(string[] args) {
+        Console.WriteLine("Please enter low number : ");
+        int low = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Please enter high number : ");
+        int high = Convert.ToInt32(Console.ReadLine());
+        Prime(low, high);
+    }
+    public static void Prime(int low, int high) {
+        for(int i = low + 1; i < high; i++) {
+            Boolean flag = false;
+            for(int j = 2; j <= Math.Round(Math.Sqrt(i)); j++) {
+                if(i % j == 0) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if(!flag && i != 0 && i != 1) {
+                Console.WriteLine(i + " ");
+            }
+        }
+    }
+}
+
+#62: Reverse A Sentence Using Recursion
+public class ReverseAStringUsingRecursion {
+    public static void Main(string[] args) {
+        Console.WriteLine("Enter a string : ");
+        String str = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Reversed string is : {0}", StringReverse(str));
+    }
+    public static string StringReverse (string str1) {
+        if(str1.Length > 0) {
+            return str1[str1.Length - 1] + StringReverse(str1.Substring(0, str1.Length - 1));
+        } else {
+            return str1;
+        }
+    }
+}
