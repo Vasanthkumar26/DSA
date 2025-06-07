@@ -976,6 +976,94 @@ C Sharp:
     - enum TransactionStatus { success = 1, pending, failed } // here index starts with 1
     - Console.WriteLine("{0} : {1}", Weekdays.Wed, (int)Weekdays.Wed); // Wed : 2
     - Console.WriteLine("{0} : {1}", TransactionStatus.pending, (int)TransactionStatus.pending); // pending : 2
+  - Attributes
+    - declarative information about type, class, methods, properties, fields, etc.,
+    - Attributes are accessed at compile-time or run-time through metadata or reflection
+    - Types
+      - Built-In Attribute
+        - DLLImport -> Methods
+        - Serializable -> Field, Class
+        - NonSerializable -> Class, Struct, enum, delegate
+        - Obsolete -> All except Assembly, Module, Parameter and Return
+      - Custom Attribute
+        - Can be created by deriving attribute class
+        - may or may not have attribute suffix [it is optional]
+  - Abstract Class
+    - Class which cannot be instantiated
+    - Acts as a base class or parent class for other classes
+    - Members can be abstract or non-abstract
+    - Members declares as abstract must be implemented by the derived classes
+    - When to use abstract class
+      - to provide default behavior or common behavior that multiple derived classes can share or override
+    - Key Points
+      - It can have constructor and destructor
+      - It cannot be a sealed class because the sealed modifier prevents a class from being inherited
+      - it's class members can be private, protected and internal
+      - It's members cannnot be private
+      - It's members are implicitly virtual & must be implemented by a non-abstract derived class
+  - interface
+    - It acts as a contract for a class or struct which implements it
+    - A class or struct that implements an interfact is bound to implement all its members
+    - It doesn't act as parent like abstract class
+    - It has only members declaration and implicitly every member is public and abstract
+    - When to use it 
+      - To group objects based on common behaviors like we do in SOA(WCF)
+      - To provide a more abstract view to a model which is unchangebale
+      - To create loosely coupled components which are easy to maintain and pluggable
+      - since the implementation of interface is seperate from itself
+    - Key Points
+      - We can do multiple interface between Interfaces
+      - We cannot achieve multiple inheritance between a class and an interface, it is just implementation
+      - It cannot be instantiated but it can be referenced by a class object which implements it
+      - Contains only properties, indexers, methods, delegates and events
+      - Cannot contain constant members, constructors, destructors, instance variables, static members or nested Interfaces
+      - It's members don't have any access modifiers not even public
+      - implicitly every member of interface is public and abstract
+      - Use explicit implementation of interface members; if multiple interfaces have same members and implemented by a class
+  - Static Class
+    - created by using static keyword
+    - cannot be instantiated, it is loaded in memory automatically by CLR at the time of execution
+    - It's members are called only with the class name
+    - In memory only one copy of static member exists and shared by all instance of class
+    - Useful to provide some common utilities like various config settings, driver manipulation, etc,
+    - Contains only static members
+    - It is sealed, cannot be inherited
+    - Has only one static constructor that can be the default constructor with private access modifier and used to initialize static members
+  - Extension Method 
+    - Used to add new behavior to an existing class, struct or interface without modifying, deriving or recompiling the original type
+    - special type of static method in static class
+    - "this" keyword is used with the first parameter and the type of first parameter will be the extension type
+    - Called like an instance method of the extension type
+    - public static class MyExtensions {
+        public static int WordCount(this String str) {
+          ...
+        }
+      }
+    - It is useful when we want to add new method to a class, struct or interface within a DLL or framework
+    - It is a special static method but called like an instance method
+    - It couldn't override existing instance method
+  - Partial class, struct, interface
+    - Intoduced in C#2.0
+    - used to split the definition over more than one class file
+    - Source files must be defined within same namespace or assembly and must have partial keyword and same access modifiers
+    - Allow more than one developer to work simultaneoulsy on the same class, struct, interface
+    - During code compilation, all the fields should be available to form final class, struct, interface
+    - Any member declared in one part / file will be available to all other parts
+    - If any part has an interface it applies to entire class
+    - Different part of class/struct may inherit from different interface
+    - If any part is declared abstract, then the whole class, interface, struct is considered abstract
+    - If any part is declared sealed, then the whole class, interface, struct is considered sealed
+  - Partial method
+    - Special method that exists within a partial class / struct
+    - one part of partial class / struct have only partial method declaration
+      and another part of same partial class/struct may have implementation for that partial method
+    - If the implementation is not provided for the declared partial method, methods and calls to those partial method are removed at compile time
+    - They cannot return value (void return type)
+    - It's implementation is optional
+    - It can be static and unsafe and generic
+    - they can have ref params but not out params
+    - you cannot make a delegate to partial method
+    - Signature of partial method is same in all parts
 
 
   - Test syntax
