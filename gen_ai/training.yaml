@@ -1,0 +1,139 @@
+- AI:
+    - Broad field of Computer Science that focuses on creating intelligent systems capable of performing tasks
+    - Incorporating Human intelligence in to machine
+- ML:
+    - Subset of AI
+    - Focuses on development of algorithm & models that enables computer to learn & make predictions
+    - decisions without explicit programming
+    - Lots of training data
+    - Computational power
+    - Algorithms
+- DL:
+    - Neural Network / Transformers -> Layers
+    - Multi layered structure
+    - Lot of computational data
+    - Subset of ML
+    - focuses on teaching computers to learn & make decisions by processing data through neural networks inspired by human brain
+- Generative AI:
+    - Gen AI -> Generative + AI
+    - Contents are generated
+    - Type of AI that can create new content like audio, images, text, code, videos, etc.,
+    - Subset of DL
+    - Conventional AI => Input Data -> AI -> Prediction, Classification, Clustering, NLP, Computer Vision
+    - Gen AI => Input Data -> AI -> Generates Text, Images, Audio, Video, Source Code
+- Summary:
+    - Machines need to be trained on large volume of data
+    - We need high computational power
+    - Shift to conversational, contextual understanding
+- ChatGPT:
+    - Language model developed by OpenAI
+    - Designed for natural language understanding & generation, specifically in a conversational context
+    - LLM -> Large Language Model
+    - Gen API application
+    - Trained on billions of documents
+    - Based on Generative Pre-Trained Transformer (GPT) architecture, a type of neural network
+    - Web Interfaces for end-users, API for developers
+- LLM [Large Language Model]:
+    - Poerful AI models, designed for understanding & generating human like text
+    - Deals only with Text
+    - Training data -> Neural Network / Transformers -> Output [One word at a time]
+    - Pre training -> trained on huge corpus of data
+    - Size & scale -> Massive neural networks
+    - Fine tuning -> More "targeted" training for specific tasks
+    - use cases:
+        - Content generation -> Marketing, advertising
+        - Chatbots and virtual assistants -> User support, interactions
+        - Language translation -> expand communication
+        - Text summarization -> reduce lengthy content
+        - Q & A -> answer questions, provide information
+- Prompt Engineering:
+    - A prompt is a specific question / command / input that we provide to AI systems
+    - To request a particular response / information / action
+    - Process of crafting well defined & structured input queries to interact with AI systems, in order to get accurate & relevant response
+    - Best Practices:
+        - clearly convey the desired response
+        - Provide context or background information
+        - Balance simplicity & complexity
+        - Iterative testing & refinement
+- Embeddings:
+    - Machines don't understand text, they only understand numbers
+    - Embeddings are numerical representation of text
+    - they are essential for AI models to understand and work with human languages effectively
+- Fine Tuning:
+    - Process of adapting a pre-trained model to perform sp. tasks / to cater to a particular domain more effectively
+    - Self Supervised:
+        - Domain sp. training data -> LLM -> result
+    - Supervised:
+        - Labeled training data [i/p & 0/p] -> LLM
+    - Reinforcement:
+        - Feedback based training
+        - LLM -> result [modifies or adapts based on results]
+    - It is not about:
+        - creating intelligence from scratch
+        - Eliminating data requirement
+        - a single universal solution
+        - magical one time process
+- User -> Query [Prompt Engineering] -> LLM [Neutral Networks/Transformers, Training Data, Embeddings] -> Fine Tuning -> Output
+- LLM -> A model trained on a vast amount of text data to understand and generate human-like languages
+- Prompt Engineering -> To create and refine the inputs given to AI models to achieve desired outputs
+- Embeddings -> Vector representations of data that capture semantic relationships
+- Fine Tuning -> Calibrating the weights of pre trained model to adapt it to a specific task or a dataset
+- Embeddings in NLP -> They convert textual data into numerical form for machine understanding
+- Use cases of Gen AI:
+    - Software Development:
+        - Build [From scratch]
+        - Fixing errors
+        - Better Code Practice
+        - Optimize performance
+
+        - Identify test cases
+        - Writing detailed test cases
+        - Generate automation scripts
+
+        - Generate Epics
+        - Generate User Stories
+        - Generate Acceptance Criteria
+
+        - Requirement documents
+        - Test Reports
+        - User Guides / Operational docs
+    - Retail:
+        - Craft & understand product description
+        - Personalized Email Campaigns
+        - Localized recommendations
+        - Visual Search
+
+        - Demand forecast
+        - Iventory optimization
+        - Predictive maintenance
+
+        - chatbots & virtual assistants, FAQ's
+        - Multilingual support
+        - Automated updates
+
+        - Analyze customer reviews
+        - Social Media monitoring
+        - Competitor analysis
+    - Marketing:
+        - Content generation
+        - Search Engine Optimization (SEO)
+        - Analyze content
+        - Suggest improvements to enhance search engine ranking
+
+        - Market Research
+        - Indentify market trends
+        - consumer behavior
+        - competitor strategies
+
+- Gen AI for documentation -> Generating technical manual from specifications
+- Gen AI in healthcare industry -> Creating Personalized treatment plans
+- Gen AI in Financial Services -> Generaing financial Reports
+- Gen AI in Entertainment industry -> Writing scripts for shows
+- Gen AI in legal industry -> Drafting legal documents & contracts
+- Gen AI in sports analytics -> Analyzing game footage to identify strategies
+- Gen AI to attract visitors -> Create interactive virtual exhibits
+- Gen AI in Journalism -> Writing news articles based on gathered data
+
+- Architecture:
+    - Source -> chunks -> embeddings -> vector source [DB] -> ranked results -> LLM -> result -> user -> Query -> semantic search -> vector source
+    -
