@@ -1,3 +1,4 @@
+require_relative "bcrypt1"
 # To have an interactive / if we want to work in terminal, we need to give "irb"
 # irb -> Will create environment for ruby code
 
@@ -208,3 +209,82 @@ hash_3.each { |key, value| puts "They key is #{key} and the value is #{value}" }
 p hash_3.select { |key, value| value.is_a?(String) }
 hash_3.each { |key, value| hash_3.delete(key) if value.is_a?(String) }
 p hash_3
+
+# Styling Guide *****************************************************
+# snake_case => this_is_snake_case [Used for variables, methods name]
+# CamelCase => ThisIsClassName, thisIsCamelCase [Used for class name]
+
+# Practise in "ruby.github.io/TryRuby"
+# Object Oriented Programming *****************************************************
+# Programming paradigm that uses objects and their interactions to design & program applications
+# Encapsulation - concept of blocking off areas of code and not making it available to the rest of the program
+# Abstraction - is simplifying a complex process of a program, an enterprise software solution for example by modeling classes appropriate for it
+# Inheritance - is used where a class inherits the behavior of another class, referred to as the superclass
+# Polymorphism - is when a class inherits the behaviors of another class, but has the ability to not inherit everything and change some of it’s inherited behaviors. For example to write a method that does something differently from the inherited method
+# Classes - It is a blueprint that describes the state and behavior that the objects of the class all share. A class can be used to create many objects. Objects created at runtime from a class are called instances of that particular class.
+
+class Student
+    include Crud
+    # Above line of code is called as "mixin" which is including a module in a class
+    attr_accessor :first_name, :last_name, :email, :username
+    # Above line is used to set / get the attributes without defining a method for each
+    attr_reader :password
+    # Above line is used to only get the attribute, we cannot set them
+
+    @first_name # Instance of the variable
+    @last_name
+    @email
+    @username
+    @password
+
+    def initialize(firstname, lastname, email, username, password)
+        @first_name = firstname
+        @last_name = lastname
+        @email = email
+        @username = username
+        @password = password
+    end
+
+    # # Setter function
+    # def first_name=(name)
+    #     @first_name = name
+    # end
+
+    # def first_name1(name)
+    #     @first_name = name
+    # end
+
+    # # Getter function
+    # def first_name
+    #     @first_name
+    # end
+
+    # Whenever we try to print a class it defaults to to_s method
+    def to_s
+        "First Name: #{@first_name}, Last Name: #{@last_name}, Email: #{@email}, Username: #{@username}"
+    end
+end
+
+student1 = Student.new("Vasanthkumar", "Sadasivam", "abc@abc.com", "VasanthS", "password1")
+student2 = Student.new("Sangeetha", "K K", "abc1@abc.com", "SangeethaKK", "password2")
+# puts student1.inspect
+# student1.first_name = "Vasanth" # This will throw an error of method undefined
+# # Above method will work if we add equal in between def first_name1=(name)
+# puts student1
+# # student1.first_name1 "Vasanthkumar" # This will work becuase we are having a method called first_name
+# # puts student1
+# puts student1.first_name # This will not work and throws an error
+# # To make this work we need to add an getter function def first_name
+# student1.last_name = "Sadasivam"
+# puts student1.last_name
+puts student1
+puts student2
+student2.last_name = student1.first_name
+puts "Value modified"
+puts student1
+puts student2
+hashed_pwd_1 = student1.create_hash(student1.password)
+puts hashed_pwd_1
+
+# Popular hashing algorithm is MD5
+# bcrypt used MD5 and adds salt to it
