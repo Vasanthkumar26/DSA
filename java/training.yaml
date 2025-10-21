@@ -232,3 +232,31 @@
         - Position of parameters also play a vital role in method overloading
         - A method can be called any number of times in a program
         - It is multiple method with same name & different arguments
+
+- Java Literals:
+    - String x = null;
+    - true, false, null are literals
+    - Constant should be in Upper case
+    - Indentation is used for improving readablity of code -> True
+
+- IntelliJ Shortcuts:
+    -
+
+- Java Classes:
+    - We need to have a class to get started with Java
+    - Java is a complete Object oriented language
+    - we need atleast a class to run program
+    - Starting point of a Java application is main method
+    - public & private are access specifiers
+    - public are accessible outside of the class
+    - private are not accessible outside of the class
+    - getters & setters are the public methods to get & set values of a class
+    - Variables within a class are called "instance variables"
+    - instance variables has some default values
+    - String -> null
+    - int -> 0
+    - boolean -> false
+    - float -> 0.0
+    - If we try to check null value of String to other string, it will throw null exception error
+    - Every class should have constructor to default values like null, 0, false with some initial value
+    - Constructor will have same name as like class name

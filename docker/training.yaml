@@ -1,0 +1,31 @@
+- creating mysql in docker:
+    - docker pull mysql:latest
+    - docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=P@55w.rd -p 3306:3306 -d mysql:latest
+      - --name mysql-container:- <name_of_container>
+      - -e MYSQL_ROOT_PASSWORD=P@55w.rd:- <setting_root_password>
+      - -p 3306:3306:- <port_to_host>
+      - -d:- <run_in_detached_mode>
+      - mysql:latest:- Image to use
+    - docker exec -it mysql-container mysql -u root -p
+      - mysql:- launch mysql client
+      - -u root:- specifies the user who is going to login
+      - -p:- prompts to enter password
+    - Then enter the password
+    - using docker file:
+        - version: "3.8"
+          services:
+            mysql:
+              image: mysql:8.0
+              container_name: mysql-container
+              ports:
+                - "3306:3306"
+              environment:
+                MYSQL_ROOT_PASSWORD: my-secret-pw
+                MYSQL_DATABASE: my_app_db # This creates the DB
+              volumes:
+                - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+                - mysql-data:/var/lib/mysql
+          volumes:
+            mysql-data:
+        - then docker compose up -d
+    - Then we can use by creating DB and table

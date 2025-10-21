@@ -288,3 +288,11 @@ puts hashed_pwd_1
 
 # Popular hashing algorithm is MD5
 # bcrypt used MD5 and adds salt to it
+
+# App Structure of MVC *****************************************************
+# It is separation of presentation layer / UI and the business logic / backend
+# Model -> are resources in the application [E.g:- User, Post, Article]
+# View -> makes UI of the application [E.g:- home.html.erb, about.html.erb]
+# Controller -> brains behind the application [E.g:- users_controller, post_controller, article_controller]
+# rmdir <folder_name> -> removes the root folder / last level foler
+# rm -rf <folder_name> -> this will remove present and the folders/files with the folder
